@@ -62,6 +62,10 @@
               <input type="file" id="clearsFile" accept="text/csv" />
               <button id="clearClears">Clear</button>
             </div>
+            <div class="controls">
+              <input type="file" id="clearsJsonFile" accept="application/json" />
+              <button id="loadDefaultClearsJson">Load XLSX Extract</button>
+            </div>
             <div class="mapping" id="columnMapping"></div>
             <div class="scroll" id="clearsStatus"></div>
           </div>
@@ -103,6 +107,10 @@
         </div>
         <div class="card">
           <div class="scroll" id="unmatched"></div>
+          <details class="not-owned">
+            <summary>Visual Compare (Sheet vs Tracker)</summary>
+            <div class="scroll" id="visualCompare"></div>
+          </details>
           <details class="not-owned">
             <summary>Not owned (from tracker)</summary>
             <div class="scroll" id="notOwned"></div>

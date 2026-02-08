@@ -3,6 +3,7 @@ import { SYNCPAIRS } from "./vendor/syncpairs.js";
 const MAPPINGLEVELS = [1, 2, 3, 4, 5, 5, 5, 5, 5, 5];
 const DEFAULT_PAIRS_PATHS = ["./my_pairs.json"];
 const ICON_BASE = "./";
+const MANUAL_MATCHES_KEY = "gauntletPlannerManualMatches";
 
 const els = {
   ownedCount: document.getElementById("ownedCount"),
@@ -14,6 +15,8 @@ const els = {
   pairsStatus: document.getElementById("pairsStatus"),
   pairsList: document.getElementById("pairsList"),
   clearsFile: document.getElementById("clearsFile"),
+  clearsJsonFile: document.getElementById("clearsJsonFile"),
+  loadDefaultClearsJson: document.getElementById("loadDefaultClearsJson"),
   clearClears: document.getElementById("clearClears"),
   columnMapping: document.getElementById("columnMapping"),
   clearsStatus: document.getElementById("clearsStatus"),
@@ -23,6 +26,7 @@ const els = {
   planOutput: document.getElementById("planOutput"),
   bossOutput: document.getElementById("bossOutput"),
   unmatched: document.getElementById("unmatched"),
+  visualCompare: document.getElementById("visualCompare"),
   notOwned: document.getElementById("notOwned"),
   unmatchedCount: document.getElementById("unmatchedCount"),
   ambiguousCount: document.getElementById("ambiguousCount"),
@@ -38,6 +42,11 @@ const state = {
   allPairs: [],
   allLookup: new Map(),
   allLookupLoose: new Map(),
+  imageByPairId: new Map(),
+  imageByName: new Map(),
+  matchedOwnedPairs: new Set(),
+  manualMatches: new Map(),
+  unmatchedRowData: new Map(),
   clears: [],
   clearsByBoss: new Map(),
   unmatched: new Map(),
@@ -109,6 +118,7 @@ function altVariants(alt) {
   if (lower.includes("special costume")) variants.add("SC");
   if (lower.includes("arc suit")) variants.add("Arc");
   if (lower.includes("palentine")) variants.add("Palentine's");
+  if (lower.includes("new year")) variants.add("NY");
   if (lower.includes("anniversary")) {
     variants.add("Anni");
     variants.add("Anniversary");
@@ -162,14 +172,16 @@ function buildLookupForPairs(entries, exactMap, looseMap) {
     variants.add(`${trainer} & ${pokemon}`);
     variants.add(`${trainer} ${pokemon}`);
     variants.add(`${trainer}${alt} ${pokemon}`);
-    variants.add(`${trainer}${alt}`.trim());
     variants.add(pokemon);
 
     altVariants(pair.trainerAlt).forEach((altVariant) => {
       const altText = altVariant ? ` ${altVariant}` : "";
       variants.add(`${trainer}${altText} & ${pokemon}`);
       variants.add(`${trainer}${altText} ${pokemon}`);
-      variants.add(`${trainer}${altText}`.trim());
+      if (altVariant) {
+        variants.add(`${trainer} (${altVariant})`);
+        variants.add(`${trainer} (${altVariant}) & ${pokemon}`);
+      }
     });
 
     if (pair.pokemonForm && pair.pokemonForm.length > 0) {
@@ -234,6 +246,22 @@ function parseOwnedPairs(obj) {
 async function loadOwnedPairsFromFile(file) {
   const text = await file.text();
   parseOwnedPairs(JSON.parse(text));
+}
+
+async function loadClearsJsonFromFile(file) {
+  const text = await file.text();
+  const payload = JSON.parse(text);
+  loadClearsFromJsonPayload(payload, "./clears_images/");
+}
+
+async function loadDefaultClearsJson() {
+  const res = await fetch("./clears_from_xlsx.json");
+  if (!res.ok) {
+    els.clearsStatus.textContent = "Missing clears_from_xlsx.json";
+    return;
+  }
+  const payload = await res.json();
+  loadClearsFromJsonPayload(payload, "./clears_images/");
 }
 
 async function loadDefaultPairs() {
@@ -326,6 +354,168 @@ function parseCSV(text) {
   }
 
   return rows;
+}
+
+function resetClearsState() {
+  state.clears = [];
+  state.clearsByBoss.clear();
+  state.unmatched.clear();
+  state.ambiguous.clear();
+  state.notOwned.clear();
+  state.notOwnedInfo.clear();
+  state.imageByPairId.clear();
+  state.imageByName.clear();
+  state.matchedOwnedPairs.clear();
+  state.unmatchedRowData.clear();
+}
+
+function loadManualMatches() {
+  try {
+    const raw = localStorage.getItem(MANUAL_MATCHES_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    if (data && typeof data === "object") {
+      Object.entries(data).forEach(([key, value]) => {
+        state.manualMatches.set(key, value);
+      });
+    }
+  } catch (err) {
+    // ignore malformed data
+  }
+}
+
+function saveManualMatches() {
+  const obj = {};
+  state.manualMatches.forEach((value, key) => {
+    obj[key] = value;
+  });
+  localStorage.setItem(MANUAL_MATCHES_KEY, JSON.stringify(obj));
+}
+
+function applyManualMatches() {
+  // Remove any prior manual clears and rebuild base indices
+  const baseClears = state.clears.filter((clear) => !clear.manual);
+  state.clears = baseClears;
+  state.clearsByBoss.clear();
+  state.matchedOwnedPairs.clear();
+  baseClears.forEach((clear) => {
+    if (!state.clearsByBoss.has(clear.boss)) {
+      state.clearsByBoss.set(clear.boss, []);
+    }
+    state.clearsByBoss.get(clear.boss).push(clear);
+    state.matchedOwnedPairs.add(clear.pairId);
+  });
+
+  if (!state.manualMatches.size) {
+    els.validClears.textContent = state.clears.length;
+    return;
+  }
+
+  const existing = new Set(state.clears.map((clear) => `${clear.boss}|${clear.pairId}`));
+
+  state.manualMatches.forEach((pairId, label) => {
+    const data = state.unmatchedRowData.get(label);
+    if (!data) return;
+    const entry = state.ownedById.get(pairId);
+    if (!entry) return;
+    state.matchedOwnedPairs.add(pairId);
+    if (data.image) {
+      state.imageByPairId.set(pairId, data.image);
+    }
+    Object.entries(data.bosses || {}).forEach(([boss, investment]) => {
+      const key = `${boss}|${pairId}`;
+      if (existing.has(key)) return;
+      const clear = {
+        boss,
+        pairId,
+        investment,
+        investmentScore: parseInvestmentScore(investment),
+        image: data.image || null,
+        manual: true
+      };
+      state.clears.push(clear);
+      existing.add(key);
+      if (!state.clearsByBoss.has(boss)) {
+        state.clearsByBoss.set(boss, []);
+      }
+      state.clearsByBoss.get(boss).push(clear);
+    });
+  });
+  els.validClears.textContent = state.clears.length;
+}
+
+function loadClearsFromJsonPayload(payload, basePath) {
+  resetClearsState();
+  state.notOwnedInfo.clear();
+  state.headers = payload.headers || [];
+  state.rows = [];
+  state.dataStartRow = 0;
+  state.syncPairColumn = payload.syncPairColumn || null;
+  state.bossColumns = payload.bossColumns || [];
+  els.columnMapping.innerHTML = "";
+
+  const rows = payload.rows || [];
+  rows.forEach((row) => {
+    const syncName = row.syncPair || "";
+    if (!syncName) return;
+    const match = matchPairName(syncName);
+    const imagePath = row.image ? `${basePath}${row.image}` : null;
+    if (imagePath) {
+      state.imageByName.set(syncName, imagePath);
+    }
+
+    if (match.status !== "match") {
+      if (!state.unmatchedRowData.has(syncName)) {
+        state.unmatchedRowData.set(syncName, { bosses: row.bosses || {}, image: imagePath });
+      }
+      if (match.status === "unmatched") {
+        state.unmatched.set(syncName, (state.unmatched.get(syncName) || 0) + 1);
+      } else if (match.status === "notOwned") {
+        state.notOwned.set(syncName, (state.notOwned.get(syncName) || 0) + 1);
+        if (row.bosses) {
+          Object.entries(row.bosses).forEach(([boss, investment]) => {
+            const score = parseInvestmentScore(investment);
+            const existing = state.notOwnedInfo.get(syncName);
+            if (!existing || score < existing.score) {
+              state.notOwnedInfo.set(syncName, { boss, investment, score });
+            }
+          });
+        }
+      } else if (match.status === "ambiguous") {
+        state.ambiguous.set(syncName, match.matches.map((entry) => pairDisplayName(entry.pair)));
+      }
+      return;
+    }
+
+    state.matchedOwnedPairs.add(match.pair.id);
+    if (imagePath) {
+      state.imageByPairId.set(match.pair.id, imagePath);
+    }
+
+    if (row.bosses) {
+      Object.entries(row.bosses).forEach(([boss, investment]) => {
+        if (!investment) return;
+        const clear = {
+          boss,
+          pairId: match.pair.id,
+          investment,
+          investmentScore: parseInvestmentScore(investment),
+          image: imagePath
+        };
+        state.clears.push(clear);
+        if (!state.clearsByBoss.has(boss)) {
+          state.clearsByBoss.set(boss, []);
+        }
+        state.clearsByBoss.get(boss).push(clear);
+      });
+    }
+  });
+
+  els.validClears.textContent = state.clears.length;
+  els.clearsStatus.textContent = `${state.clears.length} solo clears loaded (xlsx).`;
+  applyManualMatches();
+  renderUnmatched();
+  renderBossClears();
 }
 
 function renderMappingControls(headers, inferred) {
@@ -499,12 +689,7 @@ function matchPairName(name) {
 }
 
 function buildClearsFromMapping() {
-  state.clears = [];
-  state.clearsByBoss.clear();
-  state.unmatched.clear();
-  state.ambiguous.clear();
-  state.notOwned.clear();
-  state.notOwnedInfo.clear();
+  resetClearsState();
   state.notOwnedInfo.clear();
 
   const { syncPairColumn, bossColumns } = getMapping();
@@ -523,6 +708,16 @@ function buildClearsFromMapping() {
 
     const match = matchPairName(syncName);
     if (match.status !== "match") {
+      const bosses = {};
+      bossColumns.forEach((col) => {
+        const investment = (row[col] || "").trim();
+        if (!investment) return;
+        const boss = state.headers[col] || `Boss ${col + 1}`;
+        bosses[boss] = investment;
+      });
+      if (!state.unmatchedRowData.has(syncName)) {
+        state.unmatchedRowData.set(syncName, { bosses, image: state.imageByName.get(syncName) || null });
+      }
       if (match.status === "unmatched") {
         state.unmatched.set(syncName, (state.unmatched.get(syncName) || 0) + 1);
       } else if (match.status === "notOwned") {
@@ -543,6 +738,7 @@ function buildClearsFromMapping() {
       continue;
     }
 
+    state.matchedOwnedPairs.add(match.pair.id);
     bossColumns.forEach((col) => {
       const investment = (row[col] || "").trim();
       if (!investment) return;
@@ -563,6 +759,7 @@ function buildClearsFromMapping() {
 
   els.validClears.textContent = state.clears.length;
   els.clearsStatus.textContent = `${state.clears.length} solo clears loaded.`;
+  applyManualMatches();
   renderUnmatched();
   renderBossClears();
 }
@@ -572,11 +769,14 @@ function renderUnmatched() {
   let unmatchedTotal = 0;
   let ambiguousTotal = 0;
   let notOwnedTotal = 0;
+  const resolved = new Set(state.manualMatches.keys());
   state.unmatched.forEach((count, label) => {
+    if (resolved.has(label)) return;
     items.push(`<div class="unmatched-item"><strong>${label}</strong> — ${count} rows</div>`);
     unmatchedTotal += count;
   });
   state.ambiguous.forEach((matches, label) => {
+    if (resolved.has(label)) return;
     items.push(`<div class="unmatched-item"><strong>${label}</strong> — ambiguous (${matches.slice(0, 3).join("; ")})</div>`);
     ambiguousTotal += 1;
   });
@@ -584,8 +784,99 @@ function renderUnmatched() {
     els.unmatched.innerHTML = items.length ? items.join("") : "<div class=\"muted\">All clear.</div>";
   }
 
+  if (els.visualCompare) {
+    const compareItems = [];
+
+    state.ambiguous.forEach((matches, label) => {
+      if (resolved.has(label)) return;
+      compareItems.push({
+        label,
+        image: state.imageByName.get(label),
+        candidates: matches
+      });
+    });
+
+    const unmatchedOwned = state.ownedPairs.filter((entry) => !state.matchedOwnedPairs.has(entry.id));
+
+    Array.from(state.unmatched.keys()).forEach((label) => {
+      if (resolved.has(label)) return;
+      const trainer = label.split(/[(&]/)[0].trim();
+      if (!trainer) return;
+      const matches = unmatchedOwned.filter((entry) => normalize(entry.pair.trainerName) === normalize(trainer));
+      if (!matches.length) return;
+      compareItems.push({
+        label,
+        image: state.imageByName.get(label),
+        candidates: matches.map((entry) => pairDisplayName(entry.pair)),
+        candidateEntries: matches
+      });
+    });
+
+    els.visualCompare.innerHTML = compareItems.length
+      ? compareItems
+          .map((item) => {
+            const candidateEntries =
+              item.candidateEntries ||
+              item.candidates
+                .map((name) => {
+                  const entry = state.ownedPairs.find((e) => pairDisplayName(e.pair) === name);
+                  return entry || null;
+                })
+                .filter(Boolean);
+
+            const candidatesHtml = candidateEntries.length
+              ? candidateEntries
+                  .slice(0, 12)
+                  .map((entry) => {
+                    const icon =
+                      entry.pair.images && entry.pair.images.length > 0 ? `${ICON_BASE}${entry.pair.images[0]}` : "";
+                    const selected = state.manualMatches.get(item.label) === entry.id;
+                    return `
+                      <label class="compare-candidate">
+                        <input type="radio" name="match_${item.label}" value="${entry.id}" ${
+                          selected ? "checked" : ""
+                        } />
+                        ${icon ? `<img src="${icon}" alt="">` : ""}
+                        <div>${pairDisplayName(entry.pair)}</div>
+                      </label>
+                    `;
+                  })
+                  .join("")
+              : `<div class="muted">${item.candidates.slice(0, 6).join("; ")}</div>`;
+
+            return `
+              <div class="compare-row">
+                <div class="compare-left">
+                  ${item.image ? `<img src="${item.image}" alt="">` : ""}
+                </div>
+                <div class="compare-right">
+                  <div><strong>${item.label}</strong></div>
+                  <div class="compare-candidates">${candidatesHtml}</div>
+                </div>
+              </div>
+            `;
+          })
+          .join("")
+      : "<div class=\"muted\">No visual comparisons available.</div>";
+
+    els.visualCompare.querySelectorAll("input[type=\"radio\"]").forEach((input) => {
+      input.addEventListener("change", (event) => {
+        const name = event.target.name.replace("match_", "");
+        state.manualMatches.set(name, event.target.value);
+        saveManualMatches();
+        applyManualMatches();
+        renderUnmatched();
+        renderBossClears();
+        if (els.planStatus.textContent === "Drafted") {
+          buildPlan();
+        }
+      });
+    });
+  }
+
   if (els.notOwned) {
     const notOwnedItems = Array.from(state.notOwned.entries())
+      .filter(([label]) => !resolved.has(label))
       .map(([label, count]) => {
         const info = state.notOwnedInfo.get(label);
         return {
@@ -732,10 +1023,17 @@ function renderPlan(rounds) {
         .map((clear) => {
           const entry = state.ownedById.get(clear.pairId);
           const name = entry ? pairDisplayName(entry.pair) : clear.pairId;
+          const sheetImage = clear.image || state.imageByPairId.get(clear.pairId);
+          const trackerIcon =
+            entry && entry.pair.images && entry.pair.images.length > 0 ? `${ICON_BASE}${entry.pair.images[0]}` : null;
           return `
             <div class="boss">
               <div class="boss-title">${clear.boss}</div>
-              <div class="muted">${name} — ${clear.investment}</div>
+              <div class="boss-line">
+                ${sheetImage ? `<img src="${sheetImage}" alt="">` : ""}
+                ${trackerIcon ? `<img src="${trackerIcon}" alt="">` : ""}
+                <div class="muted">${name} — ${clear.investment}</div>
+              </div>
             </div>
           `;
         })
@@ -770,7 +1068,18 @@ function renderBossClears() {
         .map((clear) => {
           const entry = state.ownedById.get(clear.pairId);
           const name = entry ? pairDisplayName(entry.pair) : clear.pairId;
-          return `<div class="boss"><div class="muted">${name} — ${clear.investment}</div></div>`;
+          const sheetImage = clear.image || state.imageByPairId.get(clear.pairId);
+          const trackerIcon =
+            entry && entry.pair.images && entry.pair.images.length > 0 ? `${ICON_BASE}${entry.pair.images[0]}` : null;
+          return `
+            <div class="boss">
+              <div class="boss-line">
+                ${sheetImage ? `<img src="${sheetImage}" alt="">` : ""}
+                ${trackerIcon ? `<img src="${trackerIcon}" alt="">` : ""}
+                <div class="muted">${name} — ${clear.investment}</div>
+              </div>
+            </div>
+          `;
         })
         .join("");
 
@@ -832,16 +1141,22 @@ els.clearsFile.addEventListener("change", async (event) => {
   }
 });
 
+els.clearsJsonFile.addEventListener("change", (event) => {
+  const file = event.target.files[0];
+  if (!file) return;
+  loadClearsJsonFromFile(file);
+});
+
+els.loadDefaultClearsJson.addEventListener("click", () => {
+  loadDefaultClearsJson();
+});
+
 els.clearClears.addEventListener("click", () => {
   els.clearsFile.value = "";
+  if (els.clearsJsonFile) els.clearsJsonFile.value = "";
   state.headers = [];
   state.rows = [];
-  state.clears = [];
-  state.clearsByBoss.clear();
-  state.unmatched.clear();
-  state.ambiguous.clear();
-  state.notOwned.clear();
-  state.notOwnedInfo.clear();
+  resetClearsState();
   els.columnMapping.innerHTML = "";
   els.clearsStatus.textContent = "Clears removed.";
   els.validClears.textContent = "0";
@@ -865,4 +1180,5 @@ document.querySelectorAll(".tab").forEach((tab) => {
 buildPairsIndex();
 state.allPairs = Array.from(state.pairsMap.entries()).map(([id, pair]) => ({ id, pair }));
 buildPairLookup();
+loadManualMatches();
 loadDefaultPairs();

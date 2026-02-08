@@ -1,0 +1,4599 @@
+{
+  "sheet": "⚜️Current LG(24)",
+  "headers": [
+    "README",
+    "LAs in-depth infos",
+    "Tornadus",
+    "Terrakion",
+    "Raikou",
+    "Total"
+  ],
+  "syncPairColumn": 2,
+  "bossColumns": [
+    3,
+    4,
+    5
+  ],
+  "rows": [
+    {
+      "row": 4,
+      "syncPair": "Acerola (Summer)",
+      "image": "r4_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R +10E",
+        "Terrakion": "2 EX",
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 5,
+      "syncPair": "Adaman",
+      "image": "r5_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R +10E",
+        "Terrakion": "3 EX",
+        "Raikou": "1 20/20"
+      }
+    },
+    {
+      "row": 6,
+      "syncPair": "Adaman (Palentine's)",
+      "image": "r6_c1.png",
+      "bosses": {
+        "Tornadus": "2 EX R",
+        "Terrakion": "2 EX R",
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 7,
+      "syncPair": "Akari",
+      "image": "r7_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +10E",
+        "Terrakion": "3 EX",
+        "Raikou": "2 EX"
+      }
+    },
+    {
+      "row": 8,
+      "syncPair": "Alder (Arc)",
+      "image": "r8_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R +10E",
+        "Terrakion": "3 EX R",
+        "Raikou": "2 20/20"
+      }
+    },
+    {
+      "row": 9,
+      "syncPair": "Arven",
+      "image": "r9_c1.png",
+      "bosses": {
+        "Tornadus": "6 EX R +10E",
+        "Terrakion": "3 EX R",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 10,
+      "syncPair": "Thorton (Variety)",
+      "image": "r64_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX",
+        "Terrakion": "3 EX R",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 11,
+      "syncPair": "Avery",
+      "image": "r10_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +10E",
+        "Terrakion": "3 EX",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 12,
+      "syncPair": "Ball Guy (SS)",
+      "image": "r11_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX R",
+        "Terrakion": "3 EX R",
+        "Raikou": "1 EX"
+      }
+    },
+    {
+      "row": 13,
+      "syncPair": "Bianca (Champion)",
+      "image": "r12_c1.png",
+      "bosses": {
+        "Tornadus": "1 EX R",
+        "Terrakion": "3",
+        "Raikou": "1 EX R"
+      }
+    },
+    {
+      "row": 14,
+      "syncPair": "Blue (Arc)",
+      "image": "r13_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R +6E",
+        "Terrakion": "5 EX",
+        "Raikou": "1 20/20"
+      }
+    },
+    {
+      "row": 15,
+      "syncPair": "Ball Guy",
+      "image": "r66_c1.png",
+      "bosses": {
+        "Tornadus": "3 20/20",
+        "Terrakion": "3 20/20",
+        "Raikou": "2 EX"
+      }
+    },
+    {
+      "row": 16,
+      "syncPair": "Blue (Champion)",
+      "image": "r14_c1.png",
+      "bosses": {
+        "Tornadus": "1 EX",
+        "Terrakion": "3 20/20",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 17,
+      "syncPair": "Carmine",
+      "image": "r15_c1.png",
+      "bosses": {
+        "Tornadus": "4 EX R +8E",
+        "Terrakion": "1",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 18,
+      "syncPair": "Cress",
+      "image": "r116_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX R",
+        "Raikou": "3 EX R"
+      }
+    },
+    {
+      "row": 19,
+      "syncPair": "Bede",
+      "image": "r68_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +10E",
+        "Terrakion": "4 EX R",
+        "Raikou": "4 EX R +2E"
+      }
+    },
+    {
+      "row": 20,
+      "syncPair": "Archer",
+      "image": "r202_c1.png",
+      "bosses": {
+        "Raikou": "3 EX R"
+      }
+    },
+    {
+      "row": 21,
+      "syncPair": "Cynthia",
+      "image": "r117_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +10E",
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "4 EX +8E"
+      }
+    },
+    {
+      "row": 22,
+      "syncPair": "Brendan (SS)",
+      "image": "r69_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX",
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 23,
+      "syncPair": "Chase",
+      "image": "r16_c1.png",
+      "bosses": {
+        "Tornadus": "1",
+        "Terrakion": "5 EX R",
+        "Raikou": "1 20/20"
+      }
+    },
+    {
+      "row": 24,
+      "syncPair": "Dahlia",
+      "image": "r17_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +10E",
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "3 EX +6E"
+      }
+    },
+    {
+      "row": 25,
+      "syncPair": "Diantha (SS)",
+      "image": "r18_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +10E",
+        "Terrakion": "3 EX R +6E",
+        "Raikou": "1 EX R"
+      }
+    },
+    {
+      "row": 26,
+      "syncPair": "Cynthia (Variety)",
+      "image": "r142_c1.png",
+      "bosses": {
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 27,
+      "syncPair": "Elaine",
+      "image": "r19_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R +10E",
+        "Terrakion": "3 20/20",
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 28,
+      "syncPair": "Elesa (SSA)",
+      "image": "r20_c1.png",
+      "bosses": {
+        "Tornadus": "2",
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "2"
+      }
+    },
+    {
+      "row": 29,
+      "syncPair": "Carmine (SS)",
+      "image": "r70_c1.png",
+      "bosses": {
+        "Terrakion": "4 EX R +6E",
+        "Raikou": "1 EX R"
+      }
+    },
+    {
+      "row": 30,
+      "syncPair": "Emmet",
+      "image": "r122_c1.png",
+      "bosses": {
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "10 EX R +8E"
+      }
+    },
+    {
+      "row": 31,
+      "syncPair": "Elio (Champion)",
+      "image": "r21_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX R",
+        "Terrakion": "4 EX R +2E",
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 32,
+      "syncPair": "Eri",
+      "image": "r22_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +6E",
+        "Terrakion": "3",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 33,
+      "syncPair": "Erika (Palentine's)",
+      "image": "r23_c1.png",
+      "bosses": {
+        "Tornadus": "3",
+        "Terrakion": "3",
+        "Raikou": "1 EX R"
+      }
+    },
+    {
+      "row": 34,
+      "syncPair": "Cynthia (Arc)",
+      "image": "r71_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX R",
+        "Terrakion": "2 EX R",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 35,
+      "syncPair": "Ethan (Arc)",
+      "image": "r24_c1.png",
+      "bosses": {
+        "Tornadus": "1 EX R",
+        "Terrakion": "2 EX R",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 36,
+      "syncPair": "Giacomo",
+      "image": "r25_c1.png",
+      "bosses": {
+        "Tornadus": "7 EX R +10E",
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "3 EX R +6E"
+      }
+    },
+    {
+      "row": 37,
+      "syncPair": "Elio (Variety)",
+      "image": "r73_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX R",
+        "Terrakion": "3 20/20",
+        "Raikou": "3 20/20"
+      }
+    },
+    {
+      "row": 38,
+      "syncPair": "Giovanni (SSA)",
+      "image": "r26_c1.png",
+      "bosses": {
+        "Tornadus": "2 EX",
+        "Terrakion": "3 EX R",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 39,
+      "syncPair": "Gloria (Anni)",
+      "image": "r27_c1.png",
+      "bosses": {
+        "Tornadus": "1",
+        "Terrakion": "1",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 40,
+      "syncPair": "Gloria (Dojo)",
+      "image": "r28_c1.png",
+      "bosses": {
+        "Tornadus": "4 EX R",
+        "Terrakion": "4 EX R",
+        "Raikou": "4 EX"
+      }
+    },
+    {
+      "row": 41,
+      "syncPair": "Florian",
+      "image": "r74_c1.png",
+      "bosses": {
+        "Tornadus": "3 20/20",
+        "Terrakion": "3 EX R",
+        "Raikou": "2 20/20"
+      }
+    },
+    {
+      "row": 42,
+      "syncPair": "Grimsley (Variety)",
+      "image": "r29_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX R +6E",
+        "Terrakion": "2 EX",
+        "Raikou": "1 20/20"
+      }
+    },
+    {
+      "row": 43,
+      "syncPair": "Hilbert (Champion)",
+      "image": "r30_c1.png",
+      "bosses": {
+        "Tornadus": "1",
+        "Terrakion": "1",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 44,
+      "syncPair": "Hilda (Champion)",
+      "image": "r31_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R +10E",
+        "Terrakion": "1 20/20",
+        "Raikou": "1 20/20"
+      }
+    },
+    {
+      "row": 45,
+      "syncPair": "Elesa (Classic)",
+      "image": "r144_c1.png",
+      "bosses": {
+        "Tornadus": "2 EX",
+        "Terrakion": "5 EX",
+        "Raikou": "4 EX"
+      }
+    },
+    {
+      "row": 46,
+      "syncPair": "Hilda (SS)",
+      "image": "r32_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +10E",
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "3 EX R"
+      }
+    },
+    {
+      "row": 47,
+      "syncPair": "Hugh (Academy)",
+      "image": "r33_c1.png",
+      "bosses": {
+        "Tornadus": "1 EX R",
+        "Terrakion": "1 20/20",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 48,
+      "syncPair": "Iono",
+      "image": "r34_c1.png",
+      "bosses": {
+        "Tornadus": "2 EX",
+        "Terrakion": "4 EX R",
+        "Raikou": "2"
+      }
+    },
+    {
+      "row": 49,
+      "syncPair": "Iono (SS)",
+      "image": "r35_c1.png",
+      "bosses": {
+        "Tornadus": "3",
+        "Terrakion": "5 EX",
+        "Raikou": "3"
+      }
+    },
+    {
+      "row": 50,
+      "syncPair": "Irida",
+      "image": "r36_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R +10E",
+        "Terrakion": "3 EX R +2E",
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 51,
+      "syncPair": "Hilbert (Variety)",
+      "image": "r145_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX R +2E",
+        "Raikou": "3 EX R +2E"
+      }
+    },
+    {
+      "row": 52,
+      "syncPair": "Kabu",
+      "image": "r182_c1.png",
+      "bosses": {
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "3 EX R +2E"
+      }
+    },
+    {
+      "row": 53,
+      "syncPair": "Jacq",
+      "image": "r37_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX R +6E",
+        "Terrakion": "3",
+        "Raikou": "3"
+      }
+    },
+    {
+      "row": 54,
+      "syncPair": "Kieran",
+      "image": "r38_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX R",
+        "Terrakion": "1 20/20",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 55,
+      "syncPair": "Gloria (Alt. 2)",
+      "image": "r76_c1.png",
+      "bosses": {
+        "Tornadus": "3 20/20",
+        "Terrakion": "3 EX",
+        "Raikou": "2 20/20"
+      }
+    },
+    {
+      "row": 56,
+      "syncPair": "Klara",
+      "image": "r39_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R +10E",
+        "Terrakion": "5 EX R +10E",
+        "Raikou": "2 EX"
+      }
+    },
+    {
+      "row": 57,
+      "syncPair": "Hau (SS)",
+      "image": "r77_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R +10E",
+        "Terrakion": "6 EX R +10E",
+        "Raikou": "4 EX +8E"
+      }
+    },
+    {
+      "row": 58,
+      "syncPair": "Kris (Academy)",
+      "image": "r40_c1.png",
+      "bosses": {
+        "Tornadus": "1 20/20",
+        "Terrakion": "1",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 59,
+      "syncPair": "Lana (NY)",
+      "image": "r41_c1.png",
+      "bosses": {
+        "Tornadus": "2 EX R",
+        "Terrakion": "1",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 60,
+      "syncPair": "Korrina (SS)",
+      "image": "r79_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +10E",
+        "Terrakion": "3 EX R +2E",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 61,
+      "syncPair": "Juliana",
+      "image": "r128_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R +10E",
+        "Terrakion": "3 EX R",
+        "Raikou": "2 EX"
+      }
+    },
+    {
+      "row": 62,
+      "syncPair": "Lacey",
+      "image": "r80_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +10E",
+        "Terrakion": "4 EX",
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 63,
+      "syncPair": "Larry",
+      "image": "r82_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX R",
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 64,
+      "syncPair": "Lance (Arc)",
+      "image": "r42_c1.png",
+      "bosses": {
+        "Tornadus": "2 EX R",
+        "Terrakion": "3",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 65,
+      "syncPair": "Lear",
+      "image": "r83_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +4E",
+        "Terrakion": "5 EX",
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 66,
+      "syncPair": "Lyra (SS)",
+      "image": "r43_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX R +6E",
+        "Terrakion": "1",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 67,
+      "syncPair": "Lear (SS)",
+      "image": "r84_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R +10E",
+        "Raikou": "1 EX R"
+      }
+    },
+    {
+      "row": 68,
+      "syncPair": "Leon (Alt.)",
+      "image": "r85_c1.png",
+      "bosses": {
+        "Tornadus": "2 EX R",
+        "Terrakion": "4 EX +6E",
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 69,
+      "syncPair": "Lyra (Variety)",
+      "image": "r86_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX +10E",
+        "Terrakion": "3 EX",
+        "Raikou": "3 20/20"
+      }
+    },
+    {
+      "row": 70,
+      "syncPair": "Mai",
+      "image": "r44_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +10E",
+        "Terrakion": "3 EX R +6E",
+        "Raikou": "3 EX R +6E"
+      }
+    },
+    {
+      "row": 71,
+      "syncPair": "Morty (Academy)",
+      "image": "r190_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX R",
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 72,
+      "syncPair": "May (Champion)",
+      "image": "r88_c1.png",
+      "bosses": {
+        "Tornadus": "2 EX",
+        "Terrakion": "3 EX R +6E",
+        "Raikou": "2 EX"
+      }
+    },
+    {
+      "row": 73,
+      "syncPair": "Morty (SS)",
+      "image": "r89_c1.png",
+      "bosses": {
+        "Terrakion": "10 EX R +2E",
+        "Raikou": "5 EX R +10E"
+      }
+    },
+    {
+      "row": 74,
+      "syncPair": "Marnie (Champion)",
+      "image": "r45_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R +10E",
+        "Terrakion": "3 EX R",
+        "Raikou": "2 EX"
+      }
+    },
+    {
+      "row": 75,
+      "syncPair": "Mela",
+      "image": "r46_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +10E",
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "3 20/20"
+      }
+    },
+    {
+      "row": 76,
+      "syncPair": "Nemona",
+      "image": "r47_c1.png",
+      "bosses": {
+        "Tornadus": "1 EX R",
+        "Terrakion": "3 EX R +2E",
+        "Raikou": "3"
+      }
+    },
+    {
+      "row": 77,
+      "syncPair": "Ortega",
+      "image": "r48_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +10E",
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "3"
+      }
+    },
+    {
+      "row": 78,
+      "syncPair": "Palmer",
+      "image": "r49_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +10E",
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 79,
+      "syncPair": "Paulo",
+      "image": "r50_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +10E",
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "10 EX R +10E"
+      }
+    },
+    {
+      "row": 80,
+      "syncPair": "Perrin",
+      "image": "r51_c1.png",
+      "bosses": {
+        "Tornadus": "4 EX R +4E",
+        "Terrakion": "1",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 81,
+      "syncPair": "Professor Sycamore",
+      "image": "r52_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX",
+        "Terrakion": "5 EX",
+        "Raikou": "2 20/20"
+      }
+    },
+    {
+      "row": 82,
+      "syncPair": "Raihan (Anni)",
+      "image": "r53_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +10E",
+        "Terrakion": "4 EX",
+        "Raikou": "4 EX"
+      }
+    },
+    {
+      "row": 83,
+      "syncPair": "Raihan (NY)",
+      "image": "r54_c1.png",
+      "bosses": {
+        "Tornadus": "1",
+        "Terrakion": "2 EX",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 84,
+      "syncPair": "N (SS)",
+      "image": "r91_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX",
+        "Terrakion": "4 EX R +6E",
+        "Raikou": "3 EX R +2E"
+      }
+    },
+    {
+      "row": 85,
+      "syncPair": "Rika",
+      "image": "r93_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R",
+        "Terrakion": "3 EX +4E",
+        "Raikou": "1 EX"
+      }
+    },
+    {
+      "row": 86,
+      "syncPair": "Poppy (NY)",
+      "image": "r194_c1.png",
+      "bosses": {
+        "Terrakion": "1 EX",
+        "Raikou": "1 EX"
+      }
+    },
+    {
+      "row": 87,
+      "syncPair": "Rosa (Academy)",
+      "image": "r94_c1.png",
+      "bosses": {
+        "Terrakion": "1",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 88,
+      "syncPair": "Red (Anni)",
+      "image": "r55_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX R",
+        "Terrakion": "1",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 89,
+      "syncPair": "Samson Oak",
+      "image": "r96_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX",
+        "Terrakion": "3 EX R +6E",
+        "Raikou": "1 EX R"
+      }
+    },
+    {
+      "row": 90,
+      "syncPair": "Red (SST)",
+      "image": "r56_c1.png",
+      "bosses": {
+        "Tornadus": "1",
+        "Terrakion": "3 EX",
+        "Raikou": "1 EX"
+      }
+    },
+    {
+      "row": 91,
+      "syncPair": "Selene (SC)",
+      "image": "r97_c1.png",
+      "bosses": {
+        "Terrakion": "2 EX",
+        "Raikou": "1 EX"
+      }
+    },
+    {
+      "row": 92,
+      "syncPair": "Selene (Variety)",
+      "image": "r98_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R +10E",
+        "Terrakion": "3 EX +2E",
+        "Raikou": "2 EX"
+      }
+    },
+    {
+      "row": 93,
+      "syncPair": "Selene (Champion)",
+      "image": "r57_c1.png",
+      "bosses": {
+        "Tornadus": "2 EX",
+        "Terrakion": "3 EX +6E",
+        "Raikou": "2 EX"
+      }
+    },
+    {
+      "row": 94,
+      "syncPair": "Serena (Champion)",
+      "image": "r58_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX R",
+        "Terrakion": "3 EX R",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 95,
+      "syncPair": "Shauna (SC)",
+      "image": "r99_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX +6E",
+        "Terrakion": "3 20/20",
+        "Raikou": "2 EX"
+      }
+    },
+    {
+      "row": 96,
+      "syncPair": "Shauntal (Fall)",
+      "image": "r100_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX R +2E",
+        "Terrakion": "2 EX",
+        "Raikou": "2 20/20"
+      }
+    },
+    {
+      "row": 97,
+      "syncPair": "Silver (Arc)",
+      "image": "r59_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R +10E",
+        "Terrakion": "1",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 98,
+      "syncPair": "Silver (Champion)",
+      "image": "r60_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX R +6E",
+        "Terrakion": "2 EX R",
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 99,
+      "syncPair": "Skyla (Anni)",
+      "image": "r61_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +10E",
+        "Terrakion": "4 EX R +4E",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 100,
+      "syncPair": "Silver (SS)",
+      "image": "r101_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R +10E",
+        "Terrakion": "5 20/20",
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 101,
+      "syncPair": "Steven (Arc)",
+      "image": "r62_c1.png",
+      "bosses": {
+        "Tornadus": "1 20/20",
+        "Terrakion": "1 20/20",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 102,
+      "syncPair": "Rosa (SC)",
+      "image": "r229_c1.png",
+      "bosses": {
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 103,
+      "syncPair": "Sina",
+      "image": "r102_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R",
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "5 EX R"
+      }
+    },
+    {
+      "row": 104,
+      "syncPair": "Steven (SS)",
+      "image": "r63_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +10E",
+        "Terrakion": "3 EX",
+        "Raikou": "3 R"
+      }
+    },
+    {
+      "row": 105,
+      "syncPair": "Tate (Summer)",
+      "image": "r103_c1.png",
+      "bosses": {
+        "Tornadus": "2",
+        "Terrakion": "5 EX +10E",
+        "Raikou": "2"
+      }
+    },
+    {
+      "row": 106,
+      "syncPair": "Marnie (Academy)",
+      "image": "r135_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX",
+        "Raikou": "1 20/20"
+      }
+    },
+    {
+      "row": 107,
+      "syncPair": "Zinnia (SC)",
+      "image": "r163_c1.png",
+      "bosses": {
+        "Raikou": "3 20/20"
+      }
+    },
+    {
+      "row": 108,
+      "syncPair": "The Masked Royal",
+      "image": "r251_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 109,
+      "syncPair": "Volo",
+      "image": "r104_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R +10E",
+        "Terrakion": "3 EX R",
+        "Raikou": "3 EX R"
+      }
+    },
+    {
+      "row": 110,
+      "syncPair": "Whitney (Holiday)",
+      "image": "r282_c1.png",
+      "bosses": {
+        "Raikou": "3 20/20"
+      }
+    },
+    {
+      "row": 111,
+      "syncPair": "Wally (SS)",
+      "image": "r105_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +10E",
+        "Terrakion": "10 EX R",
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 112,
+      "syncPair": "Anabel",
+      "image": "r106_c1.png",
+      "bosses": {
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 113,
+      "syncPair": "N (Variety)",
+      "image": "r136_c1.png",
+      "bosses": {
+        "Terrakion": "2 EX R",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 114,
+      "syncPair": "Arezu",
+      "image": "r107_c1.png",
+      "bosses": {
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "3 EX R"
+      }
+    },
+    {
+      "row": 115,
+      "syncPair": "Rose",
+      "image": "r230_c1.png",
+      "bosses": {
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 116,
+      "syncPair": "Argenta",
+      "image": "r108_c1.png",
+      "bosses": {
+        "Terrakion": "5 EX R +10E",
+        "Raikou": "4 EX R +4E"
+      }
+    },
+    {
+      "row": 117,
+      "syncPair": "Volo (Alt.)",
+      "image": "r65_c1.png",
+      "bosses": {
+        "Tornadus": "4 EX R +8E",
+        "Terrakion": "1",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 118,
+      "syncPair": "Atticus",
+      "image": "r109_c1.png",
+      "bosses": {
+        "Terrakion": "5 EX +10E",
+        "Raikou": "3 EX +2E"
+      }
+    },
+    {
+      "row": 119,
+      "syncPair": "Barry (Mix)",
+      "image": "r110_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX",
+        "Raikou": "2 EX"
+      }
+    },
+    {
+      "row": 120,
+      "syncPair": "Adaman (SC)",
+      "image": "r164_c1.png",
+      "bosses": {
+        "Tornadus": "2 EX R",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 121,
+      "syncPair": "Barry (SC)",
+      "image": "r286_c1.png",
+      "bosses": {
+        "Raikou": "3 EX R"
+      }
+    },
+    {
+      "row": 122,
+      "syncPair": "Acerola (SS)",
+      "image": "r137_c1.png",
+      "bosses": {
+        "Terrakion": "5 EX R +10E",
+        "Raikou": "3"
+      }
+    },
+    {
+      "row": 123,
+      "syncPair": "Blue (SS)",
+      "image": "r167_c1.png",
+      "bosses": {
+        "Raikou": "10 EX R +10E"
+      }
+    },
+    {
+      "row": 124,
+      "syncPair": "Ash",
+      "image": "r138_c1.png",
+      "bosses": {
+        "Tornadus": "1",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 125,
+      "syncPair": "Brassius",
+      "image": "r168_c1.png",
+      "bosses": {
+        "Terrakion": "5 EX R +2E",
+        "Raikou": "5 EX R +2E"
+      }
+    },
+    {
+      "row": 126,
+      "syncPair": "Bede (Champion)",
+      "image": "r111_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 127,
+      "syncPair": "Brendan (Lodge)",
+      "image": "r112_c1.png",
+      "bosses": {
+        "Terrakion": "5 EX +8E",
+        "Raikou": "4 EX +8E"
+      }
+    },
+    {
+      "row": 128,
+      "syncPair": "Shauna (Lodge)",
+      "image": "r231_c1.png",
+      "bosses": {
+        "Terrakion": "2",
+        "Raikou": "2"
+      }
+    },
+    {
+      "row": 129,
+      "syncPair": "Bea (Palentine's)",
+      "image": "r67_c1.png",
+      "bosses": {
+        "Terrakion": "4 EX +8E",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 130,
+      "syncPair": "Bugsy (Holiday)",
+      "image": "r170_c1.png",
+      "bosses": {
+        "Raikou": "1 EX"
+      }
+    },
+    {
+      "row": 131,
+      "syncPair": "Caitlin",
+      "image": "r290_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 132,
+      "syncPair": "Burgh (Spring)",
+      "image": "r113_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX +2E",
+        "Raikou": "2 EX"
+      }
+    },
+    {
+      "row": 133,
+      "syncPair": "Cheren (DC)",
+      "image": "r172_c1.png",
+      "bosses": {
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 134,
+      "syncPair": "Clavell",
+      "image": "r114_c1.png",
+      "bosses": {
+        "Terrakion": "4 EX R",
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 135,
+      "syncPair": "Clive",
+      "image": "r115_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX R +4E",
+        "Raikou": "3 EX R +4E"
+      }
+    },
+    {
+      "row": 136,
+      "syncPair": "Clemont",
+      "image": "r173_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX",
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 137,
+      "syncPair": "Cynthia (SSA)",
+      "image": "r118_c1.png",
+      "bosses": {
+        "Tornadus": "3",
+        "Terrakion": "3 EX",
+        "Raikou": "2 20/20"
+      }
+    },
+    {
+      "row": 138,
+      "syncPair": "Dawn (Mix)",
+      "image": "r119_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX R",
+        "Raikou": "3 EX +4E"
+      }
+    },
+    {
+      "row": 139,
+      "syncPair": "Calem (Champion)",
+      "image": "r141_c1.png",
+      "bosses": {
+        "Raikou": "2"
+      }
+    },
+    {
+      "row": 140,
+      "syncPair": "Bellelba",
+      "image": "r258_c1.png",
+      "bosses": {
+        "Raikou": "3 EX +6E"
+      }
+    },
+    {
+      "row": 141,
+      "syncPair": "Ball Guy (Lodge)",
+      "image": "r339_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX"
+      }
+    },
+    {
+      "row": 142,
+      "syncPair": "Cynthia (Summer)",
+      "image": "r175_c1.png",
+      "bosses": {
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 143,
+      "syncPair": "Barry (BP)",
+      "image": "r233_c1.png",
+      "bosses": {
+        "Tornadus": "3",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 144,
+      "syncPair": "Dawn (NY)",
+      "image": "r120_c1.png",
+      "bosses": {
+        "Terrakion": "3 +4E",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 145,
+      "syncPair": "Emma",
+      "image": "r121_c1.png",
+      "bosses": {
+        "Terrakion": "5 EX",
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 146,
+      "syncPair": "Emmet (SS)",
+      "image": "r123_c1.png",
+      "bosses": {
+        "Tornadus": "2 EX",
+        "Terrakion": "10 EX R",
+        "Raikou": "3 EX R"
+      }
+    },
+    {
+      "row": 147,
+      "syncPair": "Falkner (Variety)",
+      "image": "r124_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 148,
+      "syncPair": "Cyrus (SS)",
+      "image": "r72_c1.png",
+      "bosses": {
+        "Tornadus": "9 EX R +10E",
+        "Terrakion": "2 EX",
+        "Raikou": "2"
+      }
+    },
+    {
+      "row": 149,
+      "syncPair": "Elio (Alt.)",
+      "image": "r293_c1.png",
+      "bosses": {
+        "Raikou": "5 EX R +10E"
+      }
+    },
+    {
+      "row": 150,
+      "syncPair": "Florian (Academy)",
+      "image": "r125_c1.png",
+      "bosses": {
+        "Terrakion": "1 20/20",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 151,
+      "syncPair": "Elio",
+      "image": "r176_c1.png",
+      "bosses": {
+        "Terrakion": "5 EX +10E",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 152,
+      "syncPair": "Eve (Poké Kid)",
+      "image": "r208_c1.png",
+      "bosses": {
+        "Raikou": "5 20/20"
+      }
+    },
+    {
+      "row": 153,
+      "syncPair": "Dawn (SS)",
+      "image": "r235_c1.png",
+      "bosses": {
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 154,
+      "syncPair": "Florian (Event)",
+      "image": "r263_c1.png",
+      "bosses": {
+        "Raikou": "5 EX R"
+      }
+    },
+    {
+      "row": 155,
+      "syncPair": "Grusha",
+      "image": "r177_c1.png",
+      "bosses": {
+        "Terrakion": "5 EX R +10E",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 156,
+      "syncPair": "Dexio",
+      "image": "r143_c1.png",
+      "bosses": {
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "3 EX R"
+      }
+    },
+    {
+      "row": 157,
+      "syncPair": "Elio (Mix)",
+      "image": "r236_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX R +6E",
+        "Raikou": "3 EX R"
+      }
+    },
+    {
+      "row": 158,
+      "syncPair": "Hilbert (Variety 2)",
+      "image": "r178_c1.png",
+      "bosses": {
+        "Tornadus": "2 EX",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 159,
+      "syncPair": "Guzma (Variety)",
+      "image": "r210_c1.png",
+      "bosses": {
+        "Terrakion": "3 20/20",
+        "Raikou": "3"
+      }
+    },
+    {
+      "row": 160,
+      "syncPair": "Hilda (Variety)",
+      "image": "r179_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX R +4E",
+        "Raikou": "2 EX"
+      }
+    },
+    {
+      "row": 161,
+      "syncPair": "Geeta",
+      "image": "r75_c1.png",
+      "bosses": {
+        "Terrakion": "2 EX",
+        "Raikou": "1 EX"
+      }
+    },
+    {
+      "row": 162,
+      "syncPair": "Greta",
+      "image": "r126_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX R",
+        "Raikou": "1 EX R"
+      }
+    },
+    {
+      "row": 163,
+      "syncPair": "Gladion (SS)",
+      "image": "r265_c1.png",
+      "bosses": {
+        "Raikou": "3 EX R"
+      }
+    },
+    {
+      "row": 164,
+      "syncPair": "Hilda (Lodge)",
+      "image": "r211_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 165,
+      "syncPair": "Irida (SC)",
+      "image": "r181_c1.png",
+      "bosses": {
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 166,
+      "syncPair": "Hop (Champion)",
+      "image": "r146_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX R +4E",
+        "Terrakion": "5 EX R +10E",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 167,
+      "syncPair": "Irida (Anni)",
+      "image": "r127_c1.png",
+      "bosses": {
+        "Terrakion": "1 EX R",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 168,
+      "syncPair": "Ingo (SS)",
+      "image": "r78_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX R +4E",
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 169,
+      "syncPair": "Hassel",
+      "image": "r238_c1.png",
+      "bosses": {
+        "Terrakion": "4 EX",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 170,
+      "syncPair": "Lana",
+      "image": "r215_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 171,
+      "syncPair": "Kris (Variety)",
+      "image": "r129_c1.png",
+      "bosses": {
+        "Tornadus": "2 20/20",
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 172,
+      "syncPair": "Lance",
+      "image": "r216_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 173,
+      "syncPair": "Lacey (Fall)",
+      "image": "r81_c1.png",
+      "bosses": {
+        "Terrakion": "3",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 174,
+      "syncPair": "Leaf (Champion)",
+      "image": "r130_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX R",
+        "Terrakion": "3 20/20",
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 175,
+      "syncPair": "Leaf",
+      "image": "r148_c1.png",
+      "bosses": {
+        "Raikou": "3"
+      }
+    },
+    {
+      "row": 176,
+      "syncPair": "Leaf (Mix)",
+      "image": "r131_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX",
+        "Raikou": "1 EX"
+      }
+    },
+    {
+      "row": 177,
+      "syncPair": "Leon (Arc)",
+      "image": "r132_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX R +6E",
+        "Raikou": "3 EX R +4E"
+      }
+    },
+    {
+      "row": 178,
+      "syncPair": "Kabu (Academy)",
+      "image": "r183_c1.png",
+      "bosses": {
+        "Tornadus": "4 EX R +8E",
+        "Terrakion": "3 EX R +6E",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 179,
+      "syncPair": "Lillie (Anni 2021)",
+      "image": "r149_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R +4E",
+        "Raikou": "4 EX R +4E"
+      }
+    },
+    {
+      "row": 180,
+      "syncPair": "Lucas (Mix)",
+      "image": "r150_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX +2E",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 181,
+      "syncPair": "Lillie (Anni 2024)",
+      "image": "r133_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX +2E",
+        "Raikou": "3 20/20"
+      }
+    },
+    {
+      "row": 182,
+      "syncPair": "Marley (Palentine's)",
+      "image": "r186_c1.png",
+      "bosses": {
+        "Raikou": "3 EX R"
+      }
+    },
+    {
+      "row": 183,
+      "syncPair": "Lyra",
+      "image": "r300_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 184,
+      "syncPair": "Lana (SS)",
+      "image": "r241_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX R +2E",
+        "Raikou": "3 EX R"
+      }
+    },
+    {
+      "row": 185,
+      "syncPair": "Marnie (Variety)",
+      "image": "r187_c1.png",
+      "bosses": {
+        "Terrakion": "5 EX R +10E",
+        "Raikou": "2 EX"
+      }
+    },
+    {
+      "row": 186,
+      "syncPair": "May (SS)",
+      "image": "r152_c1.png",
+      "bosses": {
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 187,
+      "syncPair": "Melony (Variety)",
+      "image": "r188_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX R +6E",
+        "Raikou": "3 20/20"
+      }
+    },
+    {
+      "row": 188,
+      "syncPair": "Mina (SS)",
+      "image": "r189_c1.png",
+      "bosses": {
+        "Terrakion": "5 EX",
+        "Raikou": "3 20/20"
+      }
+    },
+    {
+      "row": 189,
+      "syncPair": "Mallow (Variety)",
+      "image": "r87_c1.png",
+      "bosses": {
+        "Tornadus": "1",
+        "Terrakion": "3 EX",
+        "Raikou": "2"
+      }
+    },
+    {
+      "row": 190,
+      "syncPair": "Malva",
+      "image": "r221_c1.png",
+      "bosses": {
+        "Raikou": "5 EX R +10E"
+      }
+    },
+    {
+      "row": 191,
+      "syncPair": "Lillie (Holiday)",
+      "image": "r134_c1.png",
+      "bosses": {
+        "Terrakion": "3",
+        "Raikou": "1 EX R"
+      }
+    },
+    {
+      "row": 192,
+      "syncPair": "Morty",
+      "image": "r222_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 193,
+      "syncPair": "N (Lodge)",
+      "image": "r223_c1.png",
+      "bosses": {
+        "Terrakion": "3",
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 194,
+      "syncPair": "Lillie (NY)",
+      "image": "r242_c1.png",
+      "bosses": {
+        "Raikou": "3"
+      }
+    },
+    {
+      "row": 195,
+      "syncPair": "Milo",
+      "image": "r153_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +10E",
+        "Raikou": "4 EX +2E"
+      }
+    },
+    {
+      "row": 196,
+      "syncPair": "Oleana",
+      "image": "r155_c1.png",
+      "bosses": {
+        "Raikou": "3 EX R"
+      }
+    },
+    {
+      "row": 197,
+      "syncPair": "N (Anni)",
+      "image": "r191_c1.png",
+      "bosses": {
+        "Tornadus": "4 EX R +8E",
+        "Terrakion": "5 EX R +10E",
+        "Raikou": "4 EX R +8E"
+      }
+    },
+    {
+      "row": 198,
+      "syncPair": "Nate",
+      "image": "r322_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +8E"
+      }
+    },
+    {
+      "row": 199,
+      "syncPair": "Nate (Champion)",
+      "image": "r224_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX R +6E",
+        "Raikou": "3 EX R"
+      }
+    },
+    {
+      "row": 200,
+      "syncPair": "Lucas (Variety)",
+      "image": "r273_c1.png",
+      "bosses": {
+        "Raikou": "3 20/20"
+      }
+    },
+    {
+      "row": 201,
+      "syncPair": "Olympia",
+      "image": "r156_c1.png",
+      "bosses": {
+        "Terrakion": "5 EX +10E",
+        "Raikou": "2 EX"
+      }
+    },
+    {
+      "row": 202,
+      "syncPair": "Player & Buzzwole",
+      "image": "r193_c1.png",
+      "bosses": {
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 203,
+      "syncPair": "Nemona (SS)",
+      "image": "r225_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX R +6E",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 204,
+      "syncPair": "Penny (Lodge)",
+      "image": "r324_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 205,
+      "syncPair": "Poppy",
+      "image": "r157_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R +10E",
+        "Raikou": "3 EX R +6E"
+      }
+    },
+    {
+      "row": 206,
+      "syncPair": "Red (Champion)",
+      "image": "r158_c1.png",
+      "bosses": {
+        "Terrakion": "5 EX R +10E",
+        "Raikou": "2 20/20"
+      }
+    },
+    {
+      "row": 207,
+      "syncPair": "N (Arc)",
+      "image": "r90_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX R +6E",
+        "Terrakion": "3 EX +6E",
+        "Raikou": "1 20/20"
+      }
+    },
+    {
+      "row": 208,
+      "syncPair": "Phoebe (BP)",
+      "image": "r275_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 209,
+      "syncPair": "Rei",
+      "image": "r92_c1.png",
+      "bosses": {
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 210,
+      "syncPair": "Proton",
+      "image": "r227_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX +6E",
+        "Raikou": "3 20/20"
+      }
+    },
+    {
+      "row": 211,
+      "syncPair": "Roxie (SS)",
+      "image": "r195_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +10E",
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 212,
+      "syncPair": "Rosa (Champion)",
+      "image": "r95_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R +10E",
+        "Terrakion": "2 EX",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 213,
+      "syncPair": "Red (Mix)",
+      "image": "r159_c1.png",
+      "bosses": {
+        "Terrakion": "2 EX",
+        "Raikou": "1 EX R"
+      }
+    },
+    {
+      "row": 214,
+      "syncPair": "Rika (Palentine's)",
+      "image": "r228_c1.png",
+      "bosses": {
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 215,
+      "syncPair": "Sawyer (Variety)",
+      "image": "r196_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX",
+        "Raikou": "3 20/20"
+      }
+    },
+    {
+      "row": 216,
+      "syncPair": "Skyla (Summer)",
+      "image": "r197_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX R +6E",
+        "Raikou": "3 +2E"
+      }
+    },
+    {
+      "row": 217,
+      "syncPair": "Rei (Academy)",
+      "image": "r278_c1.png",
+      "bosses": {
+        "Terrakion": "1 EX R",
+        "Raikou": "3 EX R"
+      }
+    },
+    {
+      "row": 218,
+      "syncPair": "Tierno",
+      "image": "r199_c1.png",
+      "bosses": {
+        "Raikou": "3 20/20"
+      }
+    },
+    {
+      "row": 219,
+      "syncPair": "Serena (SS)",
+      "image": "r332_c1.png",
+      "bosses": {
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 220,
+      "syncPair": "Victor (Palentine's)",
+      "image": "r161_c1.png",
+      "bosses": {
+        "Raikou": "2 20/20"
+      }
+    },
+    {
+      "row": 221,
+      "syncPair": "Steven",
+      "image": "r250_c1.png",
+      "bosses": {
+        "Raikou": "10 EX +10E"
+      }
+    },
+    {
+      "row": 222,
+      "syncPair": "Whitney",
+      "image": "r281_c1.png",
+      "bosses": {
+        "Tornadus": "5 20/20 +10E"
+      }
+    },
+    {
+      "row": 223,
+      "syncPair": "Viola (Holiday)",
+      "image": "r200_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX R +6E",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 224,
+      "syncPair": "Thorton (BP)",
+      "image": "r252_c1.png",
+      "bosses": {
+        "Raikou": "3 EX +2E"
+      }
+    },
+    {
+      "row": 225,
+      "syncPair": "Teddy (Hiker)",
+      "image": "r334_c1.png",
+      "bosses": {
+        "Raikou": "5"
+      }
+    },
+    {
+      "row": 226,
+      "syncPair": "Wallace (NY)",
+      "image": "r335_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX R +4E",
+        "Raikou": "3 EX R"
+      }
+    },
+    {
+      "row": 227,
+      "syncPair": "Archie",
+      "image": "r284_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R +10E",
+        "Raikou": "5 EX R +2E"
+      }
+    },
+    {
+      "row": 228,
+      "syncPair": "Victor",
+      "image": "r253_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R +10E",
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "10 EX"
+      }
+    },
+    {
+      "row": 229,
+      "syncPair": "Allister (Fall)",
+      "image": "r254_c1.png",
+      "bosses": {
+        "Tornadus": "3",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 230,
+      "syncPair": "Ariana",
+      "image": "r285_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 231,
+      "syncPair": "Arven (Holiday)",
+      "image": "r255_c1.png",
+      "bosses": {
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 232,
+      "syncPair": "Tierno (DC)",
+      "image": "r373_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 233,
+      "syncPair": "Benga",
+      "image": "r165_c1.png",
+      "bosses": {
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "10 EX R +10E"
+      }
+    },
+    {
+      "row": 234,
+      "syncPair": "Victor (Event)",
+      "image": "r375_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 235,
+      "syncPair": "Bede (DC)",
+      "image": "r256_c1.png",
+      "bosses": {
+        "Raikou": "2 20/20"
+      }
+    },
+    {
+      "row": 236,
+      "syncPair": "Agatha (Variety)",
+      "image": "r336_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 237,
+      "syncPair": "Blossom (Furisode Girl)",
+      "image": "r166_c1.png",
+      "bosses": {
+        "Raikou": "5 20/20 +4E"
+      }
+    },
+    {
+      "row": 238,
+      "syncPair": "Bede (Variety)",
+      "image": "r287_c1.png",
+      "bosses": {
+        "Raikou": "3 EX R"
+      }
+    },
+    {
+      "row": 239,
+      "syncPair": "Brendan (Champion)",
+      "image": "r169_c1.png",
+      "bosses": {
+        "Terrakion": "4 EX R",
+        "Raikou": "1 EX"
+      }
+    },
+    {
+      "row": 240,
+      "syncPair": "Bianca",
+      "image": "r288_c1.png",
+      "bosses": {
+        "Terrakion": "5 EX +10E",
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 241,
+      "syncPair": "Allister",
+      "image": "r337_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 242,
+      "syncPair": "Blue (Classic)",
+      "image": "r139_c1.png",
+      "bosses": {
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "10 EX R +10E"
+      }
+    },
+    {
+      "row": 243,
+      "syncPair": "Bede (SS)",
+      "image": "r257_c1.png",
+      "bosses": {
+        "Raikou": "2 EX"
+      }
+    },
+    {
+      "row": 244,
+      "syncPair": "Rose (BP)",
+      "image": "r307_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 245,
+      "syncPair": "Brycen-Man",
+      "image": "r289_c1.png",
+      "bosses": {
+        "Raikou": "3 EX R +6E"
+      }
+    },
+    {
+      "row": 246,
+      "syncPair": "Chase (Variety)",
+      "image": "r171_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX R +2E",
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 247,
+      "syncPair": "Arven (Lodge)",
+      "image": "r338_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 248,
+      "syncPair": "Aaron",
+      "image": "r201_c1.png",
+      "bosses": {
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 249,
+      "syncPair": "Chili",
+      "image": "r419_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 250,
+      "syncPair": "Sabrina (NY)",
+      "image": "r308_c1.png",
+      "bosses": {
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 251,
+      "syncPair": "Cilan",
+      "image": "r420_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 252,
+      "syncPair": "Courtney",
+      "image": "r422_c1.png",
+      "bosses": {
+        "Raikou": "2 EX"
+      }
+    },
+    {
+      "row": 253,
+      "syncPair": "Cynthia (SSR)",
+      "image": "r174_c1.png",
+      "bosses": {
+        "Terrakion": "5 EX +4E",
+        "Raikou": "3 EX R +6E"
+      }
+    },
+    {
+      "row": 254,
+      "syncPair": "Brendan (Academy)",
+      "image": "r140_c1.png",
+      "bosses": {
+        "Terrakion": "1",
+        "Raikou": "1"
+      }
+    },
+    {
+      "row": 255,
+      "syncPair": "Brycen (BP)",
+      "image": "r381_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 256,
+      "syncPair": "Clavell (Alt.)",
+      "image": "r203_c1.png",
+      "bosses": {
+        "Raikou": "3 EX R"
+      }
+    },
+    {
+      "row": 257,
+      "syncPair": "Volkner",
+      "image": "r232_c1.png",
+      "bosses": {
+        "Tornadus": "5",
+        "Terrakion": "5 EX +10E",
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 258,
+      "syncPair": "Cynthia (SS)",
+      "image": "r204_c1.png",
+      "bosses": {
+        "Tornadus": "9 EX R +10E",
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "10 EX R +10E"
+      }
+    },
+    {
+      "row": 259,
+      "syncPair": "Dawn",
+      "image": "r426_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 260,
+      "syncPair": "Caitlin (Fall)",
+      "image": "r382_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 261,
+      "syncPair": "Wally (DC)",
+      "image": "r309_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX +10E"
+      }
+    },
+    {
+      "row": 262,
+      "syncPair": "Cheren (Champion)",
+      "image": "r291_c1.png",
+      "bosses": {
+        "Raikou": "2 20/20"
+      }
+    },
+    {
+      "row": 263,
+      "syncPair": "Dana",
+      "image": "r383_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 264,
+      "syncPair": "Elesa (Lodge)",
+      "image": "r384_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 265,
+      "syncPair": "Blue (Mix)",
+      "image": "r340_c1.png",
+      "bosses": {
+        "Raikou": "4 EX R +8E"
+      }
+    },
+    {
+      "row": 266,
+      "syncPair": "Erika (Holiday)",
+      "image": "r385_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 267,
+      "syncPair": "Dawn (Lodge)",
+      "image": "r205_c1.png",
+      "bosses": {
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 268,
+      "syncPair": "Blue (Lodge)",
+      "image": "r259_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +8E"
+      }
+    },
+    {
+      "row": 269,
+      "syncPair": "Diantha (SC)",
+      "image": "r206_c1.png",
+      "bosses": {
+        "Raikou": "2 EX"
+      }
+    },
+    {
+      "row": 270,
+      "syncPair": "Calem (Variety)",
+      "image": "r234_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX R +6E",
+        "Raikou": "3 EX R +6E"
+      }
+    },
+    {
+      "row": 271,
+      "syncPair": "Candice (Palentine's)",
+      "image": "r260_c1.png",
+      "bosses": {
+        "Raikou": "3 EX R"
+      }
+    },
+    {
+      "row": 272,
+      "syncPair": "Diantha",
+      "image": "r261_c1.png",
+      "bosses": {
+        "Terrakion": "10 EX R +6E",
+        "Raikou": "10 EX R +10E"
+      }
+    },
+    {
+      "row": 273,
+      "syncPair": "Brock",
+      "image": "r341_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +6E"
+      }
+    },
+    {
+      "row": 274,
+      "syncPair": "Ghetsis",
+      "image": "r432_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 275,
+      "syncPair": "Carmine (Lodge)",
+      "image": "r310_c1.png",
+      "bosses": {
+        "Raikou": "3"
+      }
+    },
+    {
+      "row": 276,
+      "syncPair": "Colress",
+      "image": "r311_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX"
+      }
+    },
+    {
+      "row": 277,
+      "syncPair": "Ethan (Variety)",
+      "image": "r207_c1.png",
+      "bosses": {
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 278,
+      "syncPair": "Elesa (Palentine's)",
+      "image": "r312_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 279,
+      "syncPair": "Eusine",
+      "image": "r262_c1.png",
+      "bosses": {
+        "Raikou": "10 EX R +10E"
+      }
+    },
+    {
+      "row": 280,
+      "syncPair": "Clair (NY)",
+      "image": "r292_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX",
+        "Raikou": "3 EX R"
+      }
+    },
+    {
+      "row": 281,
+      "syncPair": "Gloria",
+      "image": "r294_c1.png",
+      "bosses": {
+        "Raikou": "10 EX R +10E"
+      }
+    },
+    {
+      "row": 282,
+      "syncPair": "Elesa",
+      "image": "r344_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX",
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 283,
+      "syncPair": "Gladion (Academy)",
+      "image": "r209_c1.png",
+      "bosses": {
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 284,
+      "syncPair": "Ethan",
+      "image": "r345_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 285,
+      "syncPair": "Gordie (Variety)",
+      "image": "r295_c1.png",
+      "bosses": {
+        "Terrakion": "5 EX R +10E",
+        "Raikou": "5 EX R +10E"
+      }
+    },
+    {
+      "row": 286,
+      "syncPair": "Glacia",
+      "image": "r313_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +8E"
+      }
+    },
+    {
+      "row": 287,
+      "syncPair": "Giovanni (SS)",
+      "image": "r346_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 288,
+      "syncPair": "Gardenia (Summer)",
+      "image": "r264_c1.png",
+      "bosses": {
+        "Raikou": "5 EX R"
+      }
+    },
+    {
+      "row": 289,
+      "syncPair": "Falkner",
+      "image": "r237_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 290,
+      "syncPair": "Guzma",
+      "image": "r388_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 291,
+      "syncPair": "Hilbert",
+      "image": "r437_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 292,
+      "syncPair": "Hilda (SC)",
+      "image": "r389_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 293,
+      "syncPair": "Ilima",
+      "image": "r390_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R +6E"
+      }
+    },
+    {
+      "row": 294,
+      "syncPair": "Ingo",
+      "image": "r180_c1.png",
+      "bosses": {
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 295,
+      "syncPair": "Hilbert (SS)",
+      "image": "r266_c1.png",
+      "bosses": {
+        "Tornadus": "6 EX R +10E",
+        "Raikou": "10 EX R +10E"
+      }
+    },
+    {
+      "row": 296,
+      "syncPair": "Grimsley (Kimono)",
+      "image": "r347_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 297,
+      "syncPair": "Hugh",
+      "image": "r267_c1.png",
+      "bosses": {
+        "Raikou": "3"
+      }
+    },
+    {
+      "row": 298,
+      "syncPair": "Iris (Fall)",
+      "image": "r441_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 299,
+      "syncPair": "Hop (DC)",
+      "image": "r212_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 300,
+      "syncPair": "Grimsley",
+      "image": "r296_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 301,
+      "syncPair": "Jasmine (Holiday)",
+      "image": "r213_c1.png",
+      "bosses": {
+        "Tornadus": "2 EX",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 302,
+      "syncPair": "Kiawe",
+      "image": "r214_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 303,
+      "syncPair": "Hilda (Summer)",
+      "image": "r350_c1.png",
+      "bosses": {
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 304,
+      "syncPair": "Iris (Lodge)",
+      "image": "r393_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 305,
+      "syncPair": "Kris (SS)",
+      "image": "r147_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX +2E",
+        "Raikou": "2 EX"
+      }
+    },
+    {
+      "row": 306,
+      "syncPair": "Iris (Academy)",
+      "image": "r268_c1.png",
+      "bosses": {
+        "Terrakion": "4 EX +6E",
+        "Raikou": "4 EX +6E"
+      }
+    },
+    {
+      "row": 307,
+      "syncPair": "Hop",
+      "image": "r297_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 308,
+      "syncPair": "Hop (Variety)",
+      "image": "r351_c1.png",
+      "bosses": {
+        "Raikou": "1 EX R"
+      }
+    },
+    {
+      "row": 309,
+      "syncPair": "Jasmine",
+      "image": "r352_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 310,
+      "syncPair": "Lance (Variety 2)",
+      "image": "r217_c1.png",
+      "bosses": {
+        "Terrakion": "2 EX R",
+        "Raikou": "1 20/20"
+      }
+    },
+    {
+      "row": 311,
+      "syncPair": "Hilda (Variety 2)",
+      "image": "r239_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX +6E",
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 312,
+      "syncPair": "Iris (Alt.)",
+      "image": "r269_c1.png",
+      "bosses": {
+        "Raikou": "10 EX R +10E"
+      }
+    },
+    {
+      "row": 313,
+      "syncPair": "Gladion",
+      "image": "r314_c1.png",
+      "bosses": {
+        "Raikou": "5 20/20"
+      }
+    },
+    {
+      "row": 314,
+      "syncPair": "Leaf (SS)",
+      "image": "r218_c1.png",
+      "bosses": {
+        "Terrakion": "5 20/20",
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 315,
+      "syncPair": "Lance (Variety)",
+      "image": "r452_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 316,
+      "syncPair": "Liza (Summer)",
+      "image": "r453_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 317,
+      "syncPair": "Jasmine (Academy)",
+      "image": "r270_c1.png",
+      "bosses": {
+        "Raikou": "3 20/20"
+      }
+    },
+    {
+      "row": 318,
+      "syncPair": "Gladion (DC)",
+      "image": "r315_c1.png",
+      "bosses": {
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 319,
+      "syncPair": "Kali (Furisode Girl)",
+      "image": "r353_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 320,
+      "syncPair": "Kiawe (Variety)",
+      "image": "r298_c1.png",
+      "bosses": {
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 321,
+      "syncPair": "Koga",
+      "image": "r354_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 322,
+      "syncPair": "Lucas",
+      "image": "r184_c1.png",
+      "bosses": {
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "5 EX R +6E"
+      }
+    },
+    {
+      "row": 323,
+      "syncPair": "Lenora",
+      "image": "r299_c1.png",
+      "bosses": {
+        "Raikou": "4 EX"
+      }
+    },
+    {
+      "row": 324,
+      "syncPair": "Hugh (DC)",
+      "image": "r240_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 325,
+      "syncPair": "Leon (SS)",
+      "image": "r219_c1.png",
+      "bosses": {
+        "Raikou": "3 EX R"
+      }
+    },
+    {
+      "row": 326,
+      "syncPair": "Lysandre",
+      "image": "r185_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 327,
+      "syncPair": "Larry (Lodge)",
+      "image": "r355_c1.png",
+      "bosses": {
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 328,
+      "syncPair": "Leon",
+      "image": "r356_c1.png",
+      "bosses": {
+        "Raikou": "5 EX R +6E"
+      }
+    },
+    {
+      "row": 329,
+      "syncPair": "Lisia",
+      "image": "r398_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 330,
+      "syncPair": "Hop (Variety 2)",
+      "image": "r316_c1.png",
+      "bosses": {
+        "Raikou": "2 EX R"
+      }
+    },
+    {
+      "row": 331,
+      "syncPair": "Leon (Lodge)",
+      "image": "r357_c1.png",
+      "bosses": {
+        "Raikou": "5 20/20"
+      }
+    },
+    {
+      "row": 332,
+      "syncPair": "Marnie",
+      "image": "r151_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX",
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 333,
+      "syncPair": "Linnea (Furisode Girl)",
+      "image": "r317_c1.png",
+      "bosses": {
+        "Raikou": "3"
+      }
+    },
+    {
+      "row": 334,
+      "syncPair": "Lusamine",
+      "image": "r358_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 335,
+      "syncPair": "Lear (Lodge)",
+      "image": "r271_c1.png",
+      "bosses": {
+        "Raikou": "2 EX"
+      }
+    },
+    {
+      "row": 336,
+      "syncPair": "Lorelei (Variety)",
+      "image": "r220_c1.png",
+      "bosses": {
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 337,
+      "syncPair": "Lysandre (SS)",
+      "image": "r301_c1.png",
+      "bosses": {
+        "Raikou": "10 EX R +10E"
+      }
+    },
+    {
+      "row": 338,
+      "syncPair": "May (Anni)",
+      "image": "r302_c1.png",
+      "bosses": {
+        "Terrakion": "3 EX R",
+        "Raikou": "4 EX R +8E"
+      }
+    },
+    {
+      "row": 339,
+      "syncPair": "Lucian",
+      "image": "r318_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 340,
+      "syncPair": "May",
+      "image": "r319_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 341,
+      "syncPair": "N (Summer)",
+      "image": "r459_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 342,
+      "syncPair": "Maylene",
+      "image": "r320_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +8E"
+      }
+    },
+    {
+      "row": 343,
+      "syncPair": "Miriam",
+      "image": "r303_c1.png",
+      "bosses": {
+        "Terrakion": "10 EX R +10E",
+        "Raikou": "2 EX"
+      }
+    },
+    {
+      "row": 344,
+      "syncPair": "Noland (Variety)",
+      "image": "r154_c1.png",
+      "bosses": {
+        "Terrakion": "4 EX R",
+        "Raikou": "4 EX R +2E"
+      }
+    },
+    {
+      "row": 345,
+      "syncPair": "N",
+      "image": "r321_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX R +10E"
+      }
+    },
+    {
+      "row": 346,
+      "syncPair": "Mallow (Palentine's)",
+      "image": "r243_c1.png",
+      "bosses": {
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 347,
+      "syncPair": "Penny",
+      "image": "r192_c1.png",
+      "bosses": {
+        "Terrakion": "5 EX R +10E",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 348,
+      "syncPair": "Marnie (Event)",
+      "image": "r360_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX +2E"
+      }
+    },
+    {
+      "row": 349,
+      "syncPair": "Morgan",
+      "image": "r274_c1.png",
+      "bosses": {
+        "Raikou": "3 EX +2E"
+      }
+    },
+    {
+      "row": 350,
+      "syncPair": "Melony",
+      "image": "r244_c1.png",
+      "bosses": {
+        "Terrakion": "5 EX +10E",
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 351,
+      "syncPair": "Nita",
+      "image": "r323_c1.png",
+      "bosses": {
+        "Raikou": "3 20/20"
+      }
+    },
+    {
+      "row": 352,
+      "syncPair": "Nessa (Holiday)",
+      "image": "r245_c1.png",
+      "bosses": {
+        "Terrakion": "4 EX +6E",
+        "Raikou": "3 EX +6E"
+      }
+    },
+    {
+      "row": 353,
+      "syncPair": "May (Spring)",
+      "image": "r362_c1.png",
+      "bosses": {
+        "Raikou": "3 EX +4E"
+      }
+    },
+    {
+      "row": 354,
+      "syncPair": "N (DC)",
+      "image": "r363_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 355,
+      "syncPair": "Petrel",
+      "image": "r325_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX R +6E",
+        "Terrakion": "3 EX R +6E"
+      }
+    },
+    {
+      "row": 356,
+      "syncPair": "Professor Oak (Event)",
+      "image": "r326_c1.png",
+      "bosses": {
+        "Raikou": "5 EX R +10E"
+      }
+    },
+    {
+      "row": 357,
+      "syncPair": "Red",
+      "image": "r327_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX",
+        "Raikou": "4 EX R"
+      }
+    },
+    {
+      "row": 358,
+      "syncPair": "Piers (SS)",
+      "image": "r226_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX R",
+        "Raikou": "10 EX R +10E"
+      }
+    },
+    {
+      "row": 359,
+      "syncPair": "Morty (Fall)",
+      "image": "r304_c1.png",
+      "bosses": {
+        "Raikou": "4 EX"
+      }
+    },
+    {
+      "row": 360,
+      "syncPair": "Player & Pikachu",
+      "image": "r364_c1.png",
+      "bosses": {
+        "Tornadus": "10 EX R"
+      }
+    },
+    {
+      "row": 361,
+      "syncPair": "Plumeria",
+      "image": "r365_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 362,
+      "syncPair": "Morty (Lodge)",
+      "image": "r305_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 363,
+      "syncPair": "Nemona (Event)",
+      "image": "r402_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 364,
+      "syncPair": "Red (SS)",
+      "image": "r328_c1.png",
+      "bosses": {
+        "Raikou": "10 EX R +10E"
+      }
+    },
+    {
+      "row": 365,
+      "syncPair": "Player & Raikou",
+      "image": "r276_c1.png",
+      "bosses": {
+        "Tornadus": "3",
+        "Raikou": "5 20/20 +10E"
+      }
+    },
+    {
+      "row": 366,
+      "syncPair": "Riley",
+      "image": "r329_c1.png",
+      "bosses": {
+        "Raikou": "5 EX R +10E"
+      }
+    },
+    {
+      "row": 367,
+      "syncPair": "Phoebe (Fall)",
+      "image": "r246_c1.png",
+      "bosses": {
+        "Raikou": "4 EX"
+      }
+    },
+    {
+      "row": 368,
+      "syncPair": "Rosa",
+      "image": "r330_c1.png",
+      "bosses": {
+        "Raikou": "5 20/20"
+      }
+    },
+    {
+      "row": 369,
+      "syncPair": "Selene",
+      "image": "r404_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 370,
+      "syncPair": "Plumeria (Variety)",
+      "image": "r247_c1.png",
+      "bosses": {
+        "Raikou": "3 EX R +6E"
+      }
+    },
+    {
+      "row": 371,
+      "syncPair": "Player & Regirock",
+      "image": "r277_c1.png",
+      "bosses": {
+        "Raikou": "3 20/20"
+      }
+    },
+    {
+      "row": 372,
+      "syncPair": "Roxanne (Fall)",
+      "image": "r368_c1.png",
+      "bosses": {
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 373,
+      "syncPair": "Selene (Alt.)",
+      "image": "r331_c1.png",
+      "bosses": {
+        "Raikou": "5 EX R +10E"
+      }
+    },
+    {
+      "row": 374,
+      "syncPair": "Professor Sycamore (Holiday)",
+      "image": "r248_c1.png",
+      "bosses": {
+        "Raikou": "2"
+      }
+    },
+    {
+      "row": 375,
+      "syncPair": "Shauna (DC)",
+      "image": "r249_c1.png",
+      "bosses": {
+        "Raikou": "3"
+      }
+    },
+    {
+      "row": 376,
+      "syncPair": "Sonia",
+      "image": "r198_c1.png",
+      "bosses": {
+        "Tornadus": "3",
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 377,
+      "syncPair": "Shauna",
+      "image": "r370_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 378,
+      "syncPair": "Steven (Event)",
+      "image": "r407_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 379,
+      "syncPair": "Skyla (Holiday)",
+      "image": "r371_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 380,
+      "syncPair": "Serena (Lodge)",
+      "image": "r160_c1.png",
+      "bosses": {
+        "Terrakion": "5 EX",
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 381,
+      "syncPair": "Steven (Lodge)",
+      "image": "r408_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 382,
+      "syncPair": "Tina",
+      "image": "r567_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 383,
+      "syncPair": "Valerie",
+      "image": "r409_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 384,
+      "syncPair": "Noland",
+      "image": "r306_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 385,
+      "syncPair": "Serena",
+      "image": "r279_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 386,
+      "syncPair": "Steven (Anni)",
+      "image": "r280_c1.png",
+      "bosses": {
+        "Raikou": "5 EX R +6E"
+      }
+    },
+    {
+      "row": 387,
+      "syncPair": "Will",
+      "image": "r162_c1.png",
+      "bosses": {
+        "Terrakion": "5 20/20 +10E",
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 388,
+      "syncPair": "Wally (Lodge)",
+      "image": "r413_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 389,
+      "syncPair": "Will (BP)",
+      "image": "r472_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 390,
+      "syncPair": "Winona (Gym)",
+      "image": "r473_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 391,
+      "syncPair": "Acerola (Fall)",
+      "image": "r474_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 392,
+      "syncPair": "Acerola (Lodge)",
+      "image": "r475_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 393,
+      "syncPair": "Steven (Summer)",
+      "image": "r372_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 394,
+      "syncPair": "Sidney",
+      "image": "r333_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 395,
+      "syncPair": "Alder",
+      "image": "r283_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +4E"
+      }
+    },
+    {
+      "row": 396,
+      "syncPair": "Adaman (Lodge)",
+      "image": "r476_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 397,
+      "syncPair": "Agatha",
+      "image": "r477_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 398,
+      "syncPair": "Winona",
+      "image": "r414_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 399,
+      "syncPair": "Barry",
+      "image": "r478_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 400,
+      "syncPair": "Acerola",
+      "image": "r415_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 401,
+      "syncPair": "Barry (DC)",
+      "image": "r479_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 402,
+      "syncPair": "Trevor",
+      "image": "r374_c1.png",
+      "bosses": {
+        "Raikou": "3 EX R"
+      }
+    },
+    {
+      "row": 403,
+      "syncPair": "Zinnia",
+      "image": "r572_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 404,
+      "syncPair": "Bertha",
+      "image": "r376_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 405,
+      "syncPair": "Blue",
+      "image": "r377_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 406,
+      "syncPair": "Blue (DC)",
+      "image": "r378_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX +10E"
+      }
+    },
+    {
+      "row": 407,
+      "syncPair": "Bea (BP)",
+      "image": "r480_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 408,
+      "syncPair": "Zinnia (BP)",
+      "image": "r573_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 409,
+      "syncPair": "Blaine",
+      "image": "r481_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 410,
+      "syncPair": "Brock (Gym)",
+      "image": "r482_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 411,
+      "syncPair": "Bruno",
+      "image": "r483_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 412,
+      "syncPair": "Brawly",
+      "image": "r379_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 413,
+      "syncPair": "Bea",
+      "image": "r416_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 414,
+      "syncPair": "Bruno (Variety)",
+      "image": "r484_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 415,
+      "syncPair": "Brycen",
+      "image": "r485_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 416,
+      "syncPair": "Brendan",
+      "image": "r380_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 417,
+      "syncPair": "Blue (Event)",
+      "image": "r574_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 418,
+      "syncPair": "Bugsy (Event)",
+      "image": "r486_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 419,
+      "syncPair": "Burgh",
+      "image": "r487_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 420,
+      "syncPair": "Candice",
+      "image": "r488_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 421,
+      "syncPair": "Candice (BP)",
+      "image": "r489_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 422,
+      "syncPair": "Cheren",
+      "image": "r490_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 423,
+      "syncPair": "Bianca (DC)",
+      "image": "r417_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 424,
+      "syncPair": "Cheryl",
+      "image": "r491_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 425,
+      "syncPair": "Bugsy",
+      "image": "r418_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 426,
+      "syncPair": "Brock (SS)",
+      "image": "r575_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 427,
+      "syncPair": "Calem (Lodge)",
+      "image": "r576_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 428,
+      "syncPair": "Clemont (BP)",
+      "image": "r421_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX +4E"
+      }
+    },
+    {
+      "row": 429,
+      "syncPair": "Cheryl (BP)",
+      "image": "r492_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 430,
+      "syncPair": "Crasher Wake",
+      "image": "r423_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 431,
+      "syncPair": "Cynthia (Lodge)",
+      "image": "r424_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 432,
+      "syncPair": "Darach",
+      "image": "r425_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 433,
+      "syncPair": "Clair",
+      "image": "r577_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 434,
+      "syncPair": "Chuck",
+      "image": "r493_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 435,
+      "syncPair": "Cyrus",
+      "image": "r494_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 436,
+      "syncPair": "Drasna",
+      "image": "r495_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 437,
+      "syncPair": "Elesa (SS)",
+      "image": "r496_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 438,
+      "syncPair": "Dawn (Palentine's)",
+      "image": "r427_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 439,
+      "syncPair": "Emmet (SC)",
+      "image": "r497_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 440,
+      "syncPair": "Drake",
+      "image": "r428_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX +4E"
+      }
+    },
+    {
+      "row": 441,
+      "syncPair": "Erika",
+      "image": "r498_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 442,
+      "syncPair": "Evelyn",
+      "image": "r499_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 443,
+      "syncPair": "Erika (BP)",
+      "image": "r429_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 444,
+      "syncPair": "Fantina",
+      "image": "r500_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 445,
+      "syncPair": "Fantina (Gym)",
+      "image": "r501_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 446,
+      "syncPair": "Flint",
+      "image": "r502_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 447,
+      "syncPair": "Falkner (BP)",
+      "image": "r430_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 448,
+      "syncPair": "Flint (BP)",
+      "image": "r503_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 449,
+      "syncPair": "Flannery",
+      "image": "r431_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 450,
+      "syncPair": "Gardenia",
+      "image": "r504_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 451,
+      "syncPair": "Giovanni",
+      "image": "r505_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 452,
+      "syncPair": "Giovanni (Lodge)",
+      "image": "r506_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 453,
+      "syncPair": "Gladion (Lodge)",
+      "image": "r507_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 454,
+      "syncPair": "Giovanni (Classic)",
+      "image": "r433_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 455,
+      "syncPair": "Gloria (Lodge)",
+      "image": "r508_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 456,
+      "syncPair": "Calem",
+      "image": "r342_c1.png",
+      "bosses": {
+        "Tornadus": "4 EX +4E"
+      }
+    },
+    {
+      "row": 457,
+      "syncPair": "Cheren (Lodge)",
+      "image": "r343_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 458,
+      "syncPair": "Gloria (Summer)",
+      "image": "r509_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 459,
+      "syncPair": "Erika (SS)",
+      "image": "r386_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 460,
+      "syncPair": "Clay",
+      "image": "r578_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 461,
+      "syncPair": "Grant",
+      "image": "r510_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 462,
+      "syncPair": "Diantha (Lodge)",
+      "image": "r579_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 463,
+      "syncPair": "Grusha (Gym)",
+      "image": "r511_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 464,
+      "syncPair": "Giovanni (Variety)",
+      "image": "r434_c1.png",
+      "bosses": {
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 465,
+      "syncPair": "Hala",
+      "image": "r512_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 466,
+      "syncPair": "Gordie",
+      "image": "r435_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 467,
+      "syncPair": "Hau",
+      "image": "r513_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 468,
+      "syncPair": "Ethan (SS)",
+      "image": "r387_c1.png",
+      "bosses": {
+        "Raikou": "5 EX R"
+      }
+    },
+    {
+      "row": 469,
+      "syncPair": "Hau (DC)",
+      "image": "r436_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 470,
+      "syncPair": "Ingo (SC)",
+      "image": "r438_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 471,
+      "syncPair": "Guzma (SC)",
+      "image": "r580_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 472,
+      "syncPair": "Iono (Event)",
+      "image": "r439_c1.png",
+      "bosses": {
+        "Tornadus": "3 EX +6E"
+      }
+    },
+    {
+      "row": 473,
+      "syncPair": "Iono (Fall)",
+      "image": "r391_c1.png",
+      "bosses": {
+        "Raikou": "5 EX R +10E"
+      }
+    },
+    {
+      "row": 474,
+      "syncPair": "Hapu",
+      "image": "r581_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 475,
+      "syncPair": "Iono (Lodge)",
+      "image": "r392_c1.png",
+      "bosses": {
+        "Tornadus": "3"
+      }
+    },
+    {
+      "row": 476,
+      "syncPair": "Irida (Lodge)",
+      "image": "r440_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 477,
+      "syncPair": "Janine (BP)",
+      "image": "r442_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 478,
+      "syncPair": "Jasmine (Lodge)",
+      "image": "r443_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX +10E"
+      }
+    },
+    {
+      "row": 479,
+      "syncPair": "Helena (Hex Maniac)",
+      "image": "r514_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 480,
+      "syncPair": "Jasmine (SC)",
+      "image": "r444_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 481,
+      "syncPair": "Juliana (Event)",
+      "image": "r445_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 482,
+      "syncPair": "Grimsley (SS)",
+      "image": "r348_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 483,
+      "syncPair": "Kabu (Lodge)",
+      "image": "r446_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 484,
+      "syncPair": "Hilbert (Fall)",
+      "image": "r515_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 485,
+      "syncPair": "Hilda",
+      "image": "r349_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 486,
+      "syncPair": "Kabu (Gym)",
+      "image": "r516_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 487,
+      "syncPair": "Kahili",
+      "image": "r447_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 488,
+      "syncPair": "Karen (BP)",
+      "image": "r517_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 489,
+      "syncPair": "Korrina (Gym)",
+      "image": "r518_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 490,
+      "syncPair": "Karen",
+      "image": "r448_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 491,
+      "syncPair": "Kukui",
+      "image": "r519_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 492,
+      "syncPair": "Kris",
+      "image": "r449_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 493,
+      "syncPair": "Lacey (Lodge)",
+      "image": "r520_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 494,
+      "syncPair": "Lana (Gym)",
+      "image": "r450_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 495,
+      "syncPair": "Janine",
+      "image": "r394_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 496,
+      "syncPair": "Lana (Lodge)",
+      "image": "r521_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 497,
+      "syncPair": "Larry (SC)",
+      "image": "r395_c1.png",
+      "bosses": {
+        "Raikou": "3 EX R +6E"
+      }
+    },
+    {
+      "row": 498,
+      "syncPair": "Lance (NY)",
+      "image": "r522_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 499,
+      "syncPair": "Leaf (Lodge)",
+      "image": "r396_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 500,
+      "syncPair": "Leon (Holiday)",
+      "image": "r523_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 501,
+      "syncPair": "Lillie (Lodge)",
+      "image": "r524_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 502,
+      "syncPair": "Lance (Lodge)",
+      "image": "r451_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 503,
+      "syncPair": "Lisia (NY)",
+      "image": "r525_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 504,
+      "syncPair": "Liza",
+      "image": "r526_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 505,
+      "syncPair": "Looker",
+      "image": "r527_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 506,
+      "syncPair": "Lorelei",
+      "image": "r528_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 507,
+      "syncPair": "Lucy",
+      "image": "r529_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 508,
+      "syncPair": "Lt. Surge",
+      "image": "r454_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX"
+      }
+    },
+    {
+      "row": 509,
+      "syncPair": "Lt. Surge (BP)",
+      "image": "r455_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX +10E"
+      }
+    },
+    {
+      "row": 510,
+      "syncPair": "Lusamine (BP)",
+      "image": "r530_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 511,
+      "syncPair": "Lusamine (Lodge)",
+      "image": "r531_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 512,
+      "syncPair": "Marley",
+      "image": "r532_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 513,
+      "syncPair": "Marlon",
+      "image": "r533_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 514,
+      "syncPair": "Lillie",
+      "image": "r397_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 515,
+      "syncPair": "Marnie (DC)",
+      "image": "r534_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 516,
+      "syncPair": "Marnie (Lodge)",
+      "image": "r535_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 517,
+      "syncPair": "Lusamine (SS)",
+      "image": "r456_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 518,
+      "syncPair": "Marshal",
+      "image": "r536_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 519,
+      "syncPair": "Misty",
+      "image": "r537_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 520,
+      "syncPair": "Misty (Swimsuit)",
+      "image": "r538_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 521,
+      "syncPair": "Lyra (SC)",
+      "image": "r359_c1.png",
+      "bosses": {
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 522,
+      "syncPair": "Mallow",
+      "image": "r457_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 523,
+      "syncPair": "Marnie (Summer)",
+      "image": "r399_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 524,
+      "syncPair": "Misty (SS)",
+      "image": "r458_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 525,
+      "syncPair": "Maxie",
+      "image": "r400_c1.png",
+      "bosses": {
+        "Raikou": "4 EX R"
+      }
+    },
+    {
+      "row": 526,
+      "syncPair": "Molayne",
+      "image": "r539_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 527,
+      "syncPair": "Morty (BP)",
+      "image": "r540_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 528,
+      "syncPair": "Norman",
+      "image": "r541_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 529,
+      "syncPair": "Nanu",
+      "image": "r401_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 530,
+      "syncPair": "Lillie (SC)",
+      "image": "r272_c1.png",
+      "bosses": {
+        "Raikou": "3 EX"
+      }
+    },
+    {
+      "row": 531,
+      "syncPair": "Nemona (DC)",
+      "image": "r460_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 532,
+      "syncPair": "Olivia",
+      "image": "r542_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 533,
+      "syncPair": "Olivia (BP)",
+      "image": "r543_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 534,
+      "syncPair": "Piers (Lodge)",
+      "image": "r544_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 535,
+      "syncPair": "Player & Alcremie",
+      "image": "r545_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 536,
+      "syncPair": "Player & Cobalion",
+      "image": "r546_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 537,
+      "syncPair": "Player & Mesprit",
+      "image": "r547_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 538,
+      "syncPair": "Player & Registeel",
+      "image": "r548_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 539,
+      "syncPair": "Marnie (Palentine's)",
+      "image": "r361_c1.png",
+      "bosses": {
+        "Raikou": "3 EX +6E"
+      }
+    },
+    {
+      "row": 540,
+      "syncPair": "Nessa",
+      "image": "r461_c1.png",
+      "bosses": {
+        "Raikou": "5 EX"
+      }
+    },
+    {
+      "row": 541,
+      "syncPair": "Player & Solgaleo",
+      "image": "r549_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 542,
+      "syncPair": "Player & Torchic",
+      "image": "r550_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 543,
+      "syncPair": "Pryce",
+      "image": "r551_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 544,
+      "syncPair": "Piers",
+      "image": "r462_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 545,
+      "syncPair": "Rachel",
+      "image": "r552_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 546,
+      "syncPair": "Raihan (Lodge)",
+      "image": "r553_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 547,
+      "syncPair": "Rika (Lodge)",
+      "image": "r554_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 548,
+      "syncPair": "Professor Oak",
+      "image": "r463_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 549,
+      "syncPair": "Roark",
+      "image": "r555_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 550,
+      "syncPair": "Rosa (Holiday)",
+      "image": "r556_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 551,
+      "syncPair": "Roxanne",
+      "image": "r557_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 552,
+      "syncPair": "Ramos",
+      "image": "r464_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 553,
+      "syncPair": "Roxie",
+      "image": "r558_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 554,
+      "syncPair": "Rosa (Lodge)",
+      "image": "r465_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 555,
+      "syncPair": "Rachel (Variety)",
+      "image": "r366_c1.png",
+      "bosses": {
+        "Raikou": "3 EX R +6E"
+      }
+    },
+    {
+      "row": 556,
+      "syncPair": "Roxie (Gym)",
+      "image": "r559_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 557,
+      "syncPair": "Sawyer",
+      "image": "r560_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 558,
+      "syncPair": "Ryuki",
+      "image": "r466_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 559,
+      "syncPair": "Phoebe",
+      "image": "r403_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 560,
+      "syncPair": "Serena (Palentine's)",
+      "image": "r467_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 561,
+      "syncPair": "Siebold (Holiday)",
+      "image": "r468_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 562,
+      "syncPair": "Raihan",
+      "image": "r367_c1.png",
+      "bosses": {
+        "Raikou": "10 EX R +10E"
+      }
+    },
+    {
+      "row": 563,
+      "syncPair": "Shauntal",
+      "image": "r561_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 564,
+      "syncPair": "Siebold",
+      "image": "r562_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 565,
+      "syncPair": "Skyla (Lodge)",
+      "image": "r563_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 566,
+      "syncPair": "Sonia (SC)",
+      "image": "r564_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 567,
+      "syncPair": "Silver",
+      "image": "r405_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 568,
+      "syncPair": "Silver (DC)",
+      "image": "r406_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +6E"
+      }
+    },
+    {
+      "row": 569,
+      "syncPair": "Silver (Lodge)",
+      "image": "r469_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 570,
+      "syncPair": "Sabrina",
+      "image": "r369_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 571,
+      "syncPair": "Sophocles",
+      "image": "r565_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 572,
+      "syncPair": "Sophocles (BP)",
+      "image": "r566_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 573,
+      "syncPair": "Volkner (Lodge)",
+      "image": "r410_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX"
+      }
+    },
+    {
+      "row": 574,
+      "syncPair": "Viola",
+      "image": "r568_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 575,
+      "syncPair": "Volo (Lodge)",
+      "image": "r411_c1.png",
+      "bosses": {
+        "Raikou": "5 EX +10E"
+      }
+    },
+    {
+      "row": 576,
+      "syncPair": "Volkner (NY)",
+      "image": "r569_c1.png",
+      "bosses": {
+        "Tornadus": "5 EX +10E"
+      }
+    },
+    {
+      "row": 577,
+      "syncPair": "Thorton",
+      "image": "r594_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 578,
+      "syncPair": "Skyla",
+      "image": "r470_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 579,
+      "syncPair": "Wallace",
+      "image": "r412_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 580,
+      "syncPair": "Steven (SC)",
+      "image": "r471_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 581,
+      "syncPair": "Valerie (BP)",
+      "image": "r595_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 582,
+      "syncPair": "Wally",
+      "image": "r570_c1.png",
+      "bosses": {}
+    },
+    {
+      "row": 583,
+      "syncPair": "Whitney (Gym)",
+      "image": "r571_c1.png",
+      "bosses": {}
+    }
+  ]
+}
