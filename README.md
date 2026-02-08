@@ -52,6 +52,10 @@ This will:
 - Generate `gauntlet-planner/clears_from_xlsx.json`
 - Extract sheet images into `gauntlet-planner/clears_images/`
 
+Tracker inputs (XLSX + SyncPairsTracker export):
+
+![Tracker inputs](image_tracker.png)
+
 ## 4) Run the App
 From `gauntlet-planner/`:
 
@@ -65,6 +69,18 @@ Open [http://localhost:8000](http://localhost:8000) in your browser.
 In the app:
 - Click **Load XLSX Extract**.
 - Your sync pairs load automatically from `my_pairs.json`.
+
+Plan output:
+
+![Plan output](image_plan.png)
+
+Visual compare (manual matching):
+
+![Visual compare](image_visual_compare.png)
+
+Manual selection undo list:
+
+![Manual selection undo](image_manual.png)
 
 ## Updating Data
 - New XLSX or new sync pairs export? Re‑run the setup script.
