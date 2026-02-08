@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gauntlet Planner</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">Pokemon Masters • Legendary Gauntlet</div>
+          <h1>Gauntlet Planner</h1>
+          <p class="subhead">
+            Match your owned sync pairs against known clears and draft a battle plan
+            that maximizes full rounds.
+          </p>
+        </div>
+        <div class="hero-card">
+          <div class="hero-metric">
+            <div class="label">Owned pairs loaded</div>
+            <div class="value" id="ownedCount">0</div>
+          </div>
+          <div class="hero-metric">
+            <div class="label">Valid clears</div>
+            <div class="value" id="validClears">0</div>
+          </div>
+          <div class="hero-metric">
+            <div class="label">Estimated full rounds</div>
+            <div class="value" id="roundCount">0</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Inputs</h2>
+          <p>Load your exported pairs and the community clears spreadsheet CSV.</p>
+        </div>
+        <div class="grid two">
+          <div class="card">
+            <h3>Owned Sync Pairs</h3>
+            <p class="muted">Defaults to `./my_pairs.json`.</p>
+            <div class="controls">
+              <input type="file" id="pairsFile" accept="application/json" />
+              <button id="reloadPairs">Reload default</button>
+            </div>
+            <div class="control-row">
+              <input type="text" id="pairSearch" placeholder="Search owned pairs" />
+              <span class="pill" id="pairsStatus">Waiting</span>
+            </div>
+            <div class="scroll" id="pairsList"></div>
+          </div>
+
+          <div class="card">
+            <h3>Solos CSV</h3>
+            <p class="muted">Export the sheet as CSV. Each row should list a sync pair and their boss solos.</p>
+            <div class="controls">
+              <input type="file" id="clearsFile" accept="text/csv" />
+              <button id="clearClears">Clear</button>
+            </div>
+            <div class="mapping" id="columnMapping"></div>
+            <div class="scroll" id="clearsStatus"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Plan</h2>
+          <p>
+            The planner uses a heuristic to draft a sequence of rounds without
+            reusing any sync pairs.
+          </p>
+        </div>
+        <div class="card">
+          <div class="controls">
+            <button id="buildPlan">Build plan</button>
+            <button id="resetPlan">Reset</button>
+            <span class="pill" id="planStatus">No plan yet</span>
+          </div>
+          <div class="tabs">
+            <button class="tab active" data-tab="plan">Suggested Runs</button>
+            <button class="tab" data-tab="bosses">Boss Clears</button>
+            <div class="tab-meta">
+              <span class="pill warn" id="unmatchedCount">Unmatched: 0</span>
+              <span class="pill warn" id="ambiguousCount">Ambiguous: 0</span>
+              <span class="pill warn" id="notOwnedCount">Not owned: 0</span>
+            </div>
+          </div>
+          <div id="planOutput" class="plan tab-content active" data-tab-content="plan"></div>
+          <div id="bossOutput" class="plan tab-content" data-tab-content="bosses"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Unmatched / Ambiguous</h2>
+          <p>Names from the clears CSV that could not be matched to your roster.</p>
+        </div>
+        <div class="card">
+          <div class="scroll" id="unmatched"></div>
+          <details class="not-owned">
+            <summary>Not owned (from tracker)</summary>
+            <div class="scroll" id="notOwned"></div>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>Built on top of SyncPairsTracker assets.</div>
+    </footer>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
