@@ -97,21 +97,41 @@
 
       <section class="panel">
         <div class="panel-header">
-          <h2>Unmatched / Ambiguous</h2>
-          <p>Names from the clears CSV that could not be matched to your roster.</p>
+          <h2>Sync Pair Details</h2>
+          <p>
+            There are many sync pairs that were probably unable to be automatically matched
+            from the excel sheet to your sync pair tracker info. This is because a different naming
+            scheme is used and unfortunately the icons are slightly different shades as well. In these cases,
+            you can use the visual compare section below to resolve cases where you <i>may</i> have the
+            corresponding sync pair. Note that if there is no legendary clear for a pair, it won't show up in either
+            section below. The not owned section will show everything currently unresolved and allow you to sort
+            to figure out if maybe you can acquire the pair for an easy clear.
+          </p>
         </div>
         <div class="card">
-          <div class="scroll" id="unmatched"></div>
           <details class="not-owned">
             <summary>Visual Compare (Sheet vs Tracker)</summary>
-            <div class="controls">
-              <button id="clearMatches">Clear manual matches</button>
-            </div>
-            <div class="scroll" id="visualCompare"></div>
+            <div class="scroll scroll-tall" id="visualCompare"></div>
           </details>
           <details class="not-owned">
             <summary>Not owned (from tracker)</summary>
-            <div class="scroll" id="notOwned"></div>
+            <div class="controls">
+              <label class="muted">
+                Sort:
+                <select id="notOwnedSort">
+                  <option value="name" selected>Name</option>
+                  <option value="investment">Investment</option>
+                </select>
+              </label>
+            </div>
+            <div class="scroll scroll-tall" id="notOwned"></div>
+          </details>
+          <details class="not-owned">
+            <summary>Current Manual Matches</summary>
+            <div class="controls">
+              <button id="clearMatches">Clear manual matches</button>
+            </div>
+            <div class="scroll scroll-tall" id="manualMatchesList"></div>
           </details>
         </div>
       </section>

@@ -40,6 +40,8 @@ const els = {
   unmatched: document.getElementById("unmatched"),
   visualCompare: document.getElementById("visualCompare"),
   notOwned: document.getElementById("notOwned"),
+  notOwnedSort: document.getElementById("notOwnedSort"),
+  manualMatchesList: document.getElementById("manualMatchesList"),
   unmatchedCount: document.getElementById("unmatchedCount"),
   ambiguousCount: document.getElementById("ambiguousCount"),
   notOwnedCount: document.getElementById("notOwnedCount"),
@@ -67,6 +69,7 @@ const state = {
   ambiguous: new Map(),
   notOwned: new Map(),
   notOwnedInfo: new Map(),
+  notOwnedSort: "name",
   headers: [],
   rows: [],
   syncPairColumn: null,
@@ -153,16 +156,55 @@ function parseInvestmentScore(value) {
   if (!value) return Infinity;
   const text = value.toString();
   const lower = text.toLowerCase();
-  const numbers = text.match(/\d+/g) || [];
   let score = 0;
 
-  if (numbers.length > 0) {
-    score += parseInt(numbers[0], 10);
+  // Cost units:
+  // C = 20/20 baseline cost (1.0)
+  // EX = 1.5C
+  // R = 2.0C
+  // 2E = 1.0C, 10E = 2.0C (linear between)
+  // Superawakening total should be > 2x R, so SA5 = 5.0C
+  const COST_20_20 = 1.0;
+  const COST_EX = 1.5;
+  const COST_R = 2.0;
+  const COST_SA_PER_LEVEL = 1.0;
+
+  // Move level costs (non-linear): 3/5 is reasonable, 5/5 is high investment.
+  const MOVE_LEVEL_COST = {
+    1: 0.0,
+    2: 0.7,
+    3: 1.5,
+    4: 2.8,
+    5: 4.2
+  };
+
+  // Base level is expected to be the leading number (1-10).
+  const baseMatch = text.match(/^\s*(\d+)/);
+  if (baseMatch) {
+    const baseLevel = parseInt(baseMatch[1], 10);
+    if (baseLevel >= 1 && baseLevel <= 5) {
+      score += MOVE_LEVEL_COST[baseLevel] || 0;
+    } else if (baseLevel >= 6) {
+      score += MOVE_LEVEL_COST[5] || 0;
+      const saLevel = Math.min(5, baseLevel - 5);
+      score += saLevel * COST_SA_PER_LEVEL;
+    }
   }
-  if (lower.includes("ex")) score += 1.0;
-  if (lower.includes("20/20")) score += 1.0;
-  if (lower.includes("+10e") || lower.includes("10e")) score += 0.5;
-  if (/\br\b/i.test(text)) score += 0.5;
+
+  if (lower.includes("20/20")) score += COST_20_20;
+  if (lower.includes("ex")) score += COST_EX;
+  if (/\br\b/i.test(text)) score += COST_R;
+
+  // Sync orb cost: "+10E" or "10E"
+  const eMatch = text.match(/(\d+)\s*e/i);
+  if (eMatch) {
+    const eValue = parseInt(eMatch[1], 10);
+    if (!Number.isNaN(eValue)) {
+      const clamped = Math.min(10, Math.max(2, eValue));
+      const eCost = COST_20_20 + ((clamped - 2) / 8) * (COST_R - COST_20_20);
+      score += eCost;
+    }
+  }
 
   return score || 0;
 }
@@ -458,21 +500,37 @@ function loadClearsFromJsonPayload(payload, basePath) {
       if (!state.unmatchedRowData.has(syncName)) {
         state.unmatchedRowData.set(syncName, { bosses: row.bosses || {}, image: imagePath });
       }
-      if (match.status === "unmatched") {
-        state.unmatched.set(syncName, (state.unmatched.get(syncName) || 0) + 1);
-      } else if (match.status === "notOwned") {
-        state.notOwned.set(syncName, (state.notOwned.get(syncName) || 0) + 1);
-        if (row.bosses) {
+      if (match.status === "unmatched" || match.status === "notOwned") {
+        if (row.bosses && Object.keys(row.bosses).length) {
+          state.notOwned.set(syncName, (state.notOwned.get(syncName) || 0) + 1);
+          const existing = state.notOwnedInfo.get(syncName) || { bosses: new Map(), image: imagePath };
           Object.entries(row.bosses).forEach(([boss, investment]) => {
             const score = parseInvestmentScore(investment);
-            const existing = state.notOwnedInfo.get(syncName);
-            if (!existing || score < existing.score) {
-              state.notOwnedInfo.set(syncName, { boss, investment, score });
+            const prior = existing.bosses.get(boss);
+            if (!prior || score < prior.score) {
+              existing.bosses.set(boss, { investment, score });
             }
           });
+          existing.image = existing.image || imagePath;
+          state.notOwnedInfo.set(syncName, existing);
         }
       } else if (match.status === "ambiguous") {
-        state.ambiguous.set(syncName, match.matches.map((entry) => pairDisplayName(entry.pair)));
+        const ownedMatches = match.matches.filter((entry) => state.ownedById.has(entry.id));
+        if (ownedMatches.length) {
+          state.ambiguous.set(syncName, ownedMatches.map((entry) => pairDisplayName(entry.pair)));
+        } else if (row.bosses && Object.keys(row.bosses).length) {
+          state.notOwned.set(syncName, (state.notOwned.get(syncName) || 0) + 1);
+          const existing = state.notOwnedInfo.get(syncName) || { bosses: new Map(), image: imagePath };
+          Object.entries(row.bosses).forEach(([boss, investment]) => {
+            const score = parseInvestmentScore(investment);
+            const prior = existing.bosses.get(boss);
+            if (!prior || score < prior.score) {
+              existing.bosses.set(boss, { investment, score });
+            }
+          });
+          existing.image = existing.image || imagePath;
+          state.notOwnedInfo.set(syncName, existing);
+        }
       }
       return;
     }
@@ -580,6 +638,7 @@ function matchPairName(name) {
 
 // CSV import path removed; XLSX extract is the only supported input.
 function renderUnmatched() {
+  const minBossScore = (bosses) => Math.min(...bosses.map(([, meta]) => meta.score));
   const items = [];
   let unmatchedTotal = 0;
   let ambiguousTotal = 0;
@@ -587,16 +646,14 @@ function renderUnmatched() {
   const resolved = new Set(state.manualMatches.keys());
   state.unmatched.forEach((count, label) => {
     if (resolved.has(label)) return;
-    items.push(`<div class="unmatched-item"><strong>${label}</strong> — ${count} rows</div>`);
     unmatchedTotal += count;
   });
   state.ambiguous.forEach((matches, label) => {
     if (resolved.has(label)) return;
-    items.push(`<div class="unmatched-item"><strong>${label}</strong> — ambiguous (${matches.slice(0, 3).join("; ")})</div>`);
     ambiguousTotal += 1;
   });
   if (els.unmatched) {
-    els.unmatched.innerHTML = items.length ? items.join("") : "<div class=\"muted\">All clear.</div>";
+    els.unmatched.innerHTML = "";
   }
 
   if (els.visualCompare) {
@@ -613,8 +670,11 @@ function renderUnmatched() {
 
     const unmatchedOwned = state.ownedPairs.filter((entry) => !state.matchedOwnedPairs.has(entry.id));
 
-    Array.from(state.unmatched.keys()).forEach((label) => {
+    Array.from(state.unmatchedRowData.keys()).forEach((label) => {
       if (resolved.has(label)) return;
+      if (state.ambiguous.has(label)) return;
+      const rowData = state.unmatchedRowData.get(label);
+      if (!rowData || !rowData.bosses || !Object.keys(rowData.bosses).length) return;
       const trainer = label.split(/[(&]/)[0].trim();
       if (!trainer) return;
       const matches = unmatchedOwned.filter((entry) => normalize(entry.pair.trainerName) === normalize(trainer));
@@ -626,6 +686,8 @@ function renderUnmatched() {
         candidateEntries: matches
       });
     });
+
+    compareItems.sort((a, b) => a.label.localeCompare(b.label));
 
     els.visualCompare.innerHTML = compareItems.length
       ? compareItems
@@ -694,26 +756,90 @@ function renderUnmatched() {
       .filter(([label]) => !resolved.has(label))
       .map(([label, count]) => {
         const info = state.notOwnedInfo.get(label);
+        const bosses = info?.bosses ? Array.from(info.bosses.entries()) : [];
+        const minScore = bosses.length ? minBossScore(bosses) : Infinity;
         return {
           label,
           count,
-          boss: info?.boss || "",
-          investment: info?.investment || "",
-          score: info?.score ?? Infinity
+          bosses,
+          minScore,
+          image: info?.image || state.imageByName.get(label) || ""
         };
       })
-      .sort((a, b) => a.score - b.score || a.label.localeCompare(b.label));
+      .filter((item) => item.bosses.length > 0)
+      .sort((a, b) => {
+        if (state.notOwnedSort === "investment") {
+          if (a.minScore != b.minScore) return a.minScore - b.minScore;
+        }
+        return a.label.localeCompare(b.label);
+      });
 
     notOwnedTotal = notOwnedItems.reduce((sum, item) => sum + item.count, 0);
 
     els.notOwned.innerHTML = notOwnedItems.length
       ? notOwnedItems
           .map((item) => {
-            const detail = item.boss ? ` — ${item.boss}: ${item.investment}` : "";
-            return `<div class="unmatched-item"><strong>${item.label}</strong>${detail} (rows: ${item.count})</div>`;
+            const img = item.image ? `<img src="${item.image}" alt="">` : "";
+            const bossText = item.bosses.length
+              ? item.bosses
+                  .map(([boss, info]) => `${boss}: ${info.investment}`)
+                  .join(" | ")
+              : "No boss entries";
+            return `
+              <div class="unmatched-item has-icon">
+                ${img}
+                <div class="not-owned-text">
+                  <div><strong>${item.label}</strong> (rows: ${item.count})</div>
+                  <div class="not-owned-bosses">${bossText}</div>
+                </div>
+              </div>
+            `;
           })
           .join("")
       : "<div class=\"muted\">All clear.</div>";
+  }
+
+  if (els.manualMatchesList) {
+    const entries = Array.from(state.manualMatches.entries()).sort(([a], [b]) => a.localeCompare(b));
+    els.manualMatchesList.innerHTML = entries.length
+      ? entries
+          .map(([label, pairId]) => {
+            const entry = state.ownedById.get(pairId);
+            const name = entry ? pairDisplayName(entry.pair) : pairId;
+            const trackerIcon =
+              entry && entry.pair.images && entry.pair.images.length > 0 ? `${ICON_BASE}${entry.pair.images[0]}` : "";
+            const sheetImage = state.imageByName.get(label) || "";
+            return `
+              <div class="manual-match">
+                <div class="manual-icons">
+                  ${sheetImage ? `<img src="${sheetImage}" alt="">` : ""}
+                  ${trackerIcon ? `<img src="${trackerIcon}" alt="">` : ""}
+                </div>
+                <div class="manual-text">
+                  <div><strong>${label}</strong></div>
+                  <div class="muted">${name}</div>
+                </div>
+                <button class="ghost manual-remove" data-label="${label}">Undo</button>
+              </div>
+            `;
+          })
+          .join("")
+      : "<div class=\"muted\">No manual matches yet.</div>";
+
+    els.manualMatchesList.querySelectorAll(".manual-remove").forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+        const label = event.currentTarget.dataset.label;
+        if (!label) return;
+        state.manualMatches.delete(label);
+        saveManualMatches();
+        applyManualMatches();
+        renderUnmatched();
+        renderBossClears();
+        if (els.planStatus.textContent === "Drafted") {
+          buildPlan();
+        }
+      });
+    });
   }
   if (els.unmatchedCount) {
     els.unmatchedCount.textContent = `Unmatched: ${unmatchedTotal}`;
@@ -794,7 +920,9 @@ function pickBestRound(bosses, remaining, usedPairs) {
       })
       .sort((a, b) => {
         if (a.investmentScore !== b.investmentScore) return a.investmentScore - b.investmentScore;
-        return b.score - a.score;
+        const aScarcity = 1 / (pairUsage.get(a.pairId) || 1);
+        const bScarcity = 1 / (pairUsage.get(b.pairId) || 1);
+        return bScarcity - aScarcity;
       })
       .slice(0, MAX_TEAMS);
   });
@@ -802,12 +930,17 @@ function pickBestRound(bosses, remaining, usedPairs) {
   candidatesByBoss.sort((a, b) => a.candidates.length - b.candidates.length);
 
   let best = null;
-  let bestScore = -Infinity;
+  let bestInvestment = Infinity;
+  let bestScarcity = -Infinity;
 
-  function dfs(index, usedRound, chosen, score) {
+  function dfs(index, usedRound, chosen, totalInvestment, totalScarcity) {
     if (index === candidatesByBoss.length) {
-      if (score > bestScore) {
-        bestScore = score;
+      if (
+        totalInvestment < bestInvestment ||
+        (totalInvestment === bestInvestment && totalScarcity > bestScarcity)
+      ) {
+        bestInvestment = totalInvestment;
+        bestScarcity = totalScarcity;
         best = [...chosen];
       }
       return;
@@ -818,13 +951,20 @@ function pickBestRound(bosses, remaining, usedPairs) {
       if (usedRound.has(clear.pairId)) continue;
       usedRound.add(clear.pairId);
       chosen.push(clear);
-      dfs(index + 1, usedRound, chosen, score + clear.score);
+      const scarcity = 1 / (pairUsage.get(clear.pairId) || 1);
+      dfs(
+        index + 1,
+        usedRound,
+        chosen,
+        totalInvestment + (clear.investmentScore || 0),
+        totalScarcity + scarcity
+      );
       chosen.pop();
       usedRound.delete(clear.pairId);
     }
   }
 
-  dfs(0, new Set(), [], 0);
+  dfs(0, new Set(), [], 0, 0);
   return best;
 }
 
@@ -1011,6 +1151,11 @@ els.reloadClears?.addEventListener("click", () => {
   loadDefaultClearsJson();
 });
 
+els.notOwnedSort?.addEventListener("change", (event) => {
+  state.notOwnedSort = event.target.value === "investment" ? "investment" : "name";
+  renderUnmatched();
+});
+
 document.querySelectorAll(".tab").forEach((tab) => {
   tab.addEventListener("click", () => {
     document.querySelectorAll(".tab").forEach((t) => t.classList.remove("active"));
@@ -1026,4 +1171,7 @@ state.allPairs = Array.from(state.pairsMap.entries()).map(([id, pair]) => ({ id,
 buildPairLookup();
 loadManualMatches();
 loadDefaultPairs();
+if (els.notOwnedSort) {
+  state.notOwnedSort = els.notOwnedSort.value === "investment" ? "investment" : "name";
+}
 loadDefaultClearsJson();
