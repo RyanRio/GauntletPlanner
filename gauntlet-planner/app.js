@@ -4,6 +4,7 @@ const MAPPINGLEVELS = [1, 2, 3, 4, 5, 5, 5, 5, 5, 5];
 const DEFAULT_PAIRS_PATHS = ["./my_pairs.json"];
 const ICON_BASE = "./";
 const MANUAL_MATCHES_KEY = "gauntletPlannerManualMatches";
+const USED_PAIRS_KEY = "gauntletPlannerUsedPairs";
 const DIFFICULTY_LEGEND = {
   "🔰": "Beginner Difficulty: Beginners can easily do these solos, boils down to being incredibly consistent, or you literally just spam a single move without much strategy.",
   "✔️": "Normal Difficulty: Generally requires minimal strategy, but usually consistent runs with minimal RNG likely required.",
@@ -33,6 +34,8 @@ const els = {
   clearsStatus: document.getElementById("clearsStatus"),
   buildPlan: document.getElementById("buildPlan"),
   resetPlan: document.getElementById("resetPlan"),
+  flexPenalty: document.getElementById("flexPenalty"),
+  flexPenaltyValue: document.getElementById("flexPenaltyValue"),
   clearMatches: document.getElementById("clearMatches"),
   planStatus: document.getElementById("planStatus"),
   planOutput: document.getElementById("planOutput"),
@@ -42,10 +45,10 @@ const els = {
   notOwned: document.getElementById("notOwned"),
   notOwnedSort: document.getElementById("notOwnedSort"),
   manualMatchesList: document.getElementById("manualMatchesList"),
-  unmatchedCount: document.getElementById("unmatchedCount"),
-  ambiguousCount: document.getElementById("ambiguousCount"),
-  notOwnedCount: document.getElementById("notOwnedCount"),
-  manualMatchCount: document.getElementById("manualMatchCount")
+  unmatchedCount: null,
+  ambiguousCount: null,
+  notOwnedCount: null,
+  manualMatchCount: null
 };
 
 const state = {
@@ -70,6 +73,8 @@ const state = {
   notOwned: new Map(),
   notOwnedInfo: new Map(),
   notOwnedSort: "name",
+  flexPenalty: 0.6,
+  usedPairs: new Set(),
   headers: [],
   rows: [],
   syncPairColumn: null,
@@ -402,6 +407,23 @@ function loadManualMatches() {
   } catch (err) {
     // ignore malformed data
   }
+}
+
+function loadUsedPairs() {
+  try {
+    const raw = localStorage.getItem(USED_PAIRS_KEY);
+    if (!raw) return;
+    const list = JSON.parse(raw);
+    if (Array.isArray(list)) {
+      list.forEach((id) => state.usedPairs.add(id));
+    }
+  } catch (err) {
+    // ignore malformed data
+  }
+}
+
+function saveUsedPairs() {
+  localStorage.setItem(USED_PAIRS_KEY, JSON.stringify(Array.from(state.usedPairs)));
 }
 
 function saveManualMatches() {
@@ -841,18 +863,7 @@ function renderUnmatched() {
       });
     });
   }
-  if (els.unmatchedCount) {
-    els.unmatchedCount.textContent = `Unmatched: ${unmatchedTotal}`;
-  }
-  if (els.ambiguousCount) {
-    els.ambiguousCount.textContent = `Ambiguous: ${ambiguousTotal}`;
-  }
-  if (els.notOwnedCount) {
-    els.notOwnedCount.textContent = `Not owned: ${notOwnedTotal}`;
-  }
-  if (els.manualMatchCount) {
-    els.manualMatchCount.textContent = `Manual: ${state.manualMatches.size}`;
-  }
+  // Counters removed from UI.
 }
 
 function buildPlan() {
@@ -868,7 +879,7 @@ function buildPlan() {
   });
 
   const rounds = [];
-  const usedPairs = new Set();
+  const usedPairs = new Set(state.usedPairs);
 
   while (true) {
     const round = pickBestRound(bosses, remaining, usedPairs);
@@ -909,17 +920,24 @@ function pickBestRound(bosses, remaining, usedPairs) {
     });
   });
 
+  const SPECIALIST_MAX = 5.0; // 3/5 EXR and lower
+  const SPECIALIST_BONUS = 1.5; // reduce effective cost to prioritize specialists
+  const effectiveInvestment = (clear) => {
+    const usage = pairUsage.get(clear.pairId) || 1;
+    const base = (clear.investmentScore || 0) + state.flexPenalty * (usage - 1);
+    if (usage === 1 && (clear.investmentScore || 0) <= SPECIALIST_MAX) {
+      return Math.max(0, base - SPECIALIST_BONUS);
+    }
+    return base;
+  };
+
   const MAX_TEAMS = 160;
   candidatesByBoss.forEach((entry) => {
     entry.candidates = entry.candidates
-      .map((clear) => {
-        const scarcity = 1 / (pairUsage.get(clear.pairId) || 1);
-        const investmentWeight = 1 / (1 + (clear.investmentScore || 0));
-        const score = scarcity + investmentWeight;
-        return { ...clear, score };
-      })
       .sort((a, b) => {
-        if (a.investmentScore !== b.investmentScore) return a.investmentScore - b.investmentScore;
+        const aEff = effectiveInvestment(a);
+        const bEff = effectiveInvestment(b);
+        if (aEff !== bEff) return aEff - bEff;
         const aScarcity = 1 / (pairUsage.get(a.pairId) || 1);
         const bScarcity = 1 / (pairUsage.get(b.pairId) || 1);
         return bScarcity - aScarcity;
@@ -956,7 +974,7 @@ function pickBestRound(bosses, remaining, usedPairs) {
         index + 1,
         usedRound,
         chosen,
-        totalInvestment + (clear.investmentScore || 0),
+        totalInvestment + effectiveInvestment(clear),
         totalScarcity + scarcity
       );
       chosen.pop();
@@ -1041,7 +1059,7 @@ function renderBossClears() {
     return;
   }
 
-  els.bossOutput.classList.add("grid");
+  els.bossOutput.classList.add("grid", "boss-grid");
   const emptyMessage = '<div class="muted">No clears.</div>';
   const bosses = Array.from(state.clearsByBoss.keys()).sort();
   els.bossOutput.innerHTML = bosses
@@ -1049,7 +1067,12 @@ function renderBossClears() {
       const clears = state.clearsByBoss
         .get(boss)
         .slice()
-        .sort((a, b) => (a.investmentScore || 0) - (b.investmentScore || 0));
+        .sort((a, b) => {
+          const aUsed = state.usedPairs.has(a.pairId);
+          const bUsed = state.usedPairs.has(b.pairId);
+          if (aUsed !== bUsed) return aUsed ? 1 : -1;
+          return (a.investmentScore || 0) - (b.investmentScore || 0);
+        });
 
       const rows = clears
         .map((clear) => {
@@ -1060,13 +1083,18 @@ function renderBossClears() {
             entry && entry.pair.images && entry.pair.images.length > 0 ? `${ICON_BASE}${entry.pair.images[0]}` : null;
           const detail = clear.detail;
           const difficulty = detail?.difficulty || "";
+          const used = state.usedPairs.has(clear.pairId);
           return `
-            <div class="boss">
+            <div class="boss${used ? " used" : ""}">
               <div class="boss-line">
                 ${sheetImage ? `<img src="${sheetImage}" alt="">` : ""}
                 ${trackerIcon ? `<img src="${trackerIcon}" alt="">` : ""}
                 <div class="muted">${name} — ${clear.investment}</div>
               </div>
+              <label class="used-toggle">
+                <input type="checkbox" data-pair-id="${clear.pairId}" ${used ? "checked" : ""} />
+                Mark used
+              </label>
               ${difficulty ? `<div class="difficulty">${renderDifficultyBadges(difficulty)}</div>` : ""}
               ${
                 detail
@@ -1105,6 +1133,20 @@ function renderBossClears() {
       `;
     })
     .join("");
+
+  els.bossOutput.querySelectorAll(".used-toggle input[type=\"checkbox\"]").forEach((input) => {
+    input.addEventListener("change", (event) => {
+      const pairId = event.target.dataset.pairId;
+      if (!pairId) return;
+      if (event.target.checked) state.usedPairs.add(pairId);
+      else state.usedPairs.delete(pairId);
+      saveUsedPairs();
+      renderBossClears();
+      if (els.planStatus.textContent === "Drafted") {
+        buildPlan();
+      }
+    });
+  });
 }
 
 function renderDifficultyBadges(text) {
@@ -1156,6 +1198,19 @@ els.notOwnedSort?.addEventListener("change", (event) => {
   renderUnmatched();
 });
 
+  if (els.flexPenalty && els.flexPenaltyValue) {
+    state.flexPenalty = parseFloat(els.flexPenalty.value) || 0;
+    els.flexPenaltyValue.textContent = state.flexPenalty.toFixed(1);
+    els.flexPenalty.addEventListener("input", (event) => {
+      const value = parseFloat(event.target.value);
+      state.flexPenalty = Number.isFinite(value) ? value : 0;
+      els.flexPenaltyValue.textContent = state.flexPenalty.toFixed(1);
+      if (els.planStatus.textContent === "Drafted") {
+        buildPlan();
+      }
+    });
+  }
+
 document.querySelectorAll(".tab").forEach((tab) => {
   tab.addEventListener("click", () => {
     document.querySelectorAll(".tab").forEach((t) => t.classList.remove("active"));
@@ -1170,6 +1225,7 @@ buildPairsIndex();
 state.allPairs = Array.from(state.pairsMap.entries()).map(([id, pair]) => ({ id, pair }));
 buildPairLookup();
 loadManualMatches();
+loadUsedPairs();
 loadDefaultPairs();
 if (els.notOwnedSort) {
   state.notOwnedSort = els.notOwnedSort.value === "investment" ? "investment" : "name";

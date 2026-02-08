@@ -152,6 +152,17 @@ main {
   flex-wrap: wrap;
 }
 
+.plan-slider {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-left: 0.4rem;
+}
+
+.plan-slider input[type="range"] {
+  width: 140px;
+}
+
 .controls button {
   background: var(--accent);
   color: white;
@@ -400,6 +411,19 @@ main {
   border-radius: 8px;
   border: 1px solid #d2c1a8;
   background: white;
+}
+
+.boss.used {
+  opacity: 0.5;
+}
+
+.used-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.3rem;
 }
 
 .detail {

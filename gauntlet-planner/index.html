@@ -79,16 +79,15 @@
             <button id="buildPlan">Build plan</button>
             <button id="resetPlan">Reset</button>
             <span class="pill" id="planStatus">No plan yet</span>
+            <label class="muted plan-slider">
+              Flex penalty
+              <input id="flexPenalty" type="range" min="0" max="2" step="0.1" value="0.6" />
+              <span id="flexPenaltyValue">0.6</span>
+            </label>
           </div>
           <div class="tabs">
             <button class="tab active" data-tab="plan">Suggested Runs</button>
             <button class="tab" data-tab="bosses">Boss Clears</button>
-            <div class="tab-meta">
-              <span class="pill warn" id="unmatchedCount">Unmatched: 0</span>
-              <span class="pill warn" id="ambiguousCount">Ambiguous: 0</span>
-              <span class="pill warn" id="notOwnedCount">Not owned: 0</span>
-              <span class="pill" id="manualMatchCount">Manual: 0</span>
-            </div>
           </div>
           <div id="planOutput" class="plan tab-content active" data-tab-content="plan"></div>
           <div id="bossOutput" class="plan tab-content" data-tab-content="bosses"></div>
