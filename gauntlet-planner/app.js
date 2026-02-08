@@ -4,6 +4,21 @@ const MAPPINGLEVELS = [1, 2, 3, 4, 5, 5, 5, 5, 5, 5];
 const DEFAULT_PAIRS_PATHS = ["./my_pairs.json"];
 const ICON_BASE = "./";
 const MANUAL_MATCHES_KEY = "gauntletPlannerManualMatches";
+const DIFFICULTY_LEGEND = {
+  "🔰": "Beginner Difficulty: Beginners can easily do these solos, boils down to being incredibly consistent, or you literally just spam a single move without much strategy.",
+  "✔️": "Normal Difficulty: Generally requires minimal strategy, but usually consistent runs with minimal RNG likely required.",
+  "⚠️": "Moderate Difficulty: Usually will take a bit of practice, but these solos can be done pretty consistently when you understand the general strategy and get decent luck.",
+  "⛔": "Difficult/RNG Heavy/Precise: Be prepared to attempt these solos multiple times. Usually these solos use an unconventional strategy or you must be tight with certain timings. Tread with caution.",
+  "🚫": "Not Recommended: Solos that are too troublesome to be worthwhile in a LG setting.",
+  "🕗": "Time Consuming: These solos are quite long battles that you must be prepared to endure.",
+  "🔁": "Reset Heavy: Expect to be resetting a lot for good procs, dodges, MPRs, any multiple overall RNG based luck that is necessary to win. Prepare to reset a lot...",
+  "⚙️": "Skill Gear Required: Solos that were likely only completable due to specific Skill Gear, likely Skill Gear with high stat values or possibly good passives (please always show your gears when uploading runs, even when they are regular gears!).",
+  "🪽": "Dodge Reliant: Runs where the main strategy is to rely on key or frequent misses from the enemy due to either self Evasion Buffing or enemy Accuracy Debuffing, or both, or Dodging from moves such as Fly or Phantom Force.",
+  "💦💤🧊": "Disable Spam: Runs that employ and rely on constant use of Disables such as Flinch💦, Sleep💤, and Freeze🧊 in order to either stay alive or stall for success.",
+  "⚡": "Energy Overcap: Solos that use over 60+ Grid (BSB) Energy.",
+  "*️⃣": "Lvl 181-200: Solos that use Plaques of Perfection for Lvl 181-200 units.",
+  "🥠": "Special Cookie Required: Solos that use either a Personal Lucky Cookie or a Tower Lucky Cookie."
+};
 
 const els = {
   ownedCount: document.getElementById("ownedCount"),
@@ -817,6 +832,7 @@ function renderPlan(rounds) {
     return;
   }
 
+  els.planOutput.classList.add("grid");
   els.planOutput.innerHTML = rounds
     .map((round, index) => {
       const entries = [...round]
@@ -828,6 +844,7 @@ function renderPlan(rounds) {
           const trackerIcon =
             entry && entry.pair.images && entry.pair.images.length > 0 ? `${ICON_BASE}${entry.pair.images[0]}` : null;
           const detail = clear.detail;
+          const difficulty = detail?.difficulty || "";
           return `
             <div class="boss">
               <div class="boss-title">${clear.boss}</div>
@@ -836,18 +853,29 @@ function renderPlan(rounds) {
                 ${trackerIcon ? `<img src="${trackerIcon}" alt="">` : ""}
                 <div class="muted">${name} — ${clear.investment}</div>
               </div>
+              ${difficulty ? `<div class="difficulty">${renderDifficultyBadges(difficulty)}</div>` : ""}
               ${
                 detail
-                  ? `<div class="detail">
+                  ? `<details class="detail">
+                      <summary>Details</summary>
                       <div class="muted">${detail.moveLevel || ""} ${detail.grid || ""}</div>
+                      ${
+                        detail.gridLink
+                          ? `<div class="muted"><a href="${detail.gridLink}" target="_blank">Open Sync Grid</a></div>`
+                          : ""
+                      }
                       <div class="muted">Min: ${detail.minInvestment || "-"} ${
                       detail.minVideo ? `<a href="${detail.minVideo}" target="_blank">Video</a>` : ""
                     } | Max: ${detail.maxInvestment || "-"} ${
                       detail.maxVideo ? `<a href="${detail.maxVideo}" target="_blank">Video</a>` : ""
                     }</div>
-                      <div class="muted">Difficulty: ${detail.difficulty || "-"}</div>
-                      <div class="muted">${detail.notes || ""}</div>
-                    </div>`
+                      ${detail.notes ? `<div class="muted">${detail.notes}</div>` : ""}
+                      ${
+                        detail.gridLink
+                          ? `<div class="muted"><a href="${detail.gridLink}" target="_blank">Open Sync Grid</a></div>`
+                          : ""
+                      }
+                    </details>`
                   : ""
               }
             </div>
@@ -871,6 +899,7 @@ function renderBossClears() {
     return;
   }
 
+  els.bossOutput.classList.add("grid");
   const emptyMessage = '<div class="muted">No clears.</div>';
   const bosses = Array.from(state.clearsByBoss.keys()).sort();
   els.bossOutput.innerHTML = bosses
@@ -888,6 +917,7 @@ function renderBossClears() {
           const trackerIcon =
             entry && entry.pair.images && entry.pair.images.length > 0 ? `${ICON_BASE}${entry.pair.images[0]}` : null;
           const detail = clear.detail;
+          const difficulty = detail?.difficulty || "";
           return `
             <div class="boss">
               <div class="boss-line">
@@ -895,18 +925,29 @@ function renderBossClears() {
                 ${trackerIcon ? `<img src="${trackerIcon}" alt="">` : ""}
                 <div class="muted">${name} — ${clear.investment}</div>
               </div>
+              ${difficulty ? `<div class="difficulty">${renderDifficultyBadges(difficulty)}</div>` : ""}
               ${
                 detail
-                  ? `<div class="detail">
+                  ? `<details class="detail">
+                      <summary>Details</summary>
                       <div class="muted">${detail.moveLevel || ""} ${detail.grid || ""}</div>
+                      ${
+                        detail.gridLink
+                          ? `<div class="muted"><a href="${detail.gridLink}" target="_blank">Open Sync Grid</a></div>`
+                          : ""
+                      }
                       <div class="muted">Min: ${detail.minInvestment || "-"} ${
                       detail.minVideo ? `<a href="${detail.minVideo}" target="_blank">Video</a>` : ""
                     } | Max: ${detail.maxInvestment || "-"} ${
                       detail.maxVideo ? `<a href="${detail.maxVideo}" target="_blank">Video</a>` : ""
                     }</div>
-                      <div class="muted">Difficulty: ${detail.difficulty || "-"}</div>
-                      <div class="muted">${detail.notes || ""}</div>
-                    </div>`
+                      ${detail.notes ? `<div class="muted">${detail.notes}</div>` : ""}
+                      ${
+                        detail.gridLink
+                          ? `<div class="muted"><a href="${detail.gridLink}" target="_blank">Open Sync Grid</a></div>`
+                          : ""
+                      }
+                    </details>`
                   : ""
               }
             </div>
@@ -922,6 +963,18 @@ function renderBossClears() {
       `;
     })
     .join("");
+}
+
+function renderDifficultyBadges(text) {
+  const tokens = [];
+  if (!text) return "";
+  for (const key of Object.keys(DIFFICULTY_LEGEND)) {
+    if (text.includes(key)) tokens.push(key);
+  }
+  if (!tokens.length) return text;
+  return tokens
+    .map((icon) => `<span class="diff-badge" data-tooltip="${DIFFICULTY_LEGEND[icon]}">${icon}</span>`)
+    .join(" ");
 }
 
 function resetPlan() {

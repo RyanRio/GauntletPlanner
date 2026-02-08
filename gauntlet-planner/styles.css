@@ -162,6 +162,18 @@ main {
   font-family: "Avenir Next", "Helvetica Neue", sans-serif;
 }
 
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.toggle input {
+  accent-color: var(--accent-2);
+}
+
 .controls button:hover {
   filter: brightness(0.95);
 }
@@ -282,6 +294,12 @@ main {
   gap: 1rem;
 }
 
+.plan.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
 .tabs {
   display: flex;
   align-items: center;
@@ -386,6 +404,53 @@ main {
 
 .detail a {
   color: var(--accent-2);
+}
+
+.detail summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.difficulty {
+  margin-top: 0.2rem;
+  font-size: 1rem;
+}
+
+.diff-badge {
+  display: inline-block;
+  padding: 0.1rem 0.25rem;
+  border-radius: 6px;
+  background: #fff3dc;
+  border: 1px solid var(--border);
+  cursor: help;
+  position: relative;
+}
+
+.diff-badge::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 0;
+  top: 120%;
+  min-width: 220px;
+  max-width: 320px;
+  background: #fffdf7;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.8rem;
+  color: var(--ink);
+  box-shadow: 0 8px 20px rgba(39, 27, 16, 0.12);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: opacity 0.12s ease, transform 0.12s ease;
+  z-index: 10;
+}
+
+.diff-badge:hover::after {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .compare-row {

@@ -156,6 +156,7 @@ def parse_boss_sheet(ws):
         sync_name = str(name).strip()
         move_level = ws.cell(r, 3).value
         grid = ws.cell(r, 4).value
+        grid_link = ws.cell(r, 4).hyperlink.target if ws.cell(r, 4).hyperlink else None
         min_invest = ws.cell(r, 5).value
         max_invest = ws.cell(r, 6).value
         difficulty = ws.cell(r, 7).value
@@ -171,7 +172,8 @@ def parse_boss_sheet(ws):
             "minVideo": min_link,
             "maxVideo": max_link,
             "difficulty": str(difficulty).strip() if difficulty is not None else "",
-            "notes": str(notes).strip() if notes is not None else ""
+            "notes": str(notes).strip() if notes is not None else "",
+            "gridLink": grid_link
         }
         r += 1
 
