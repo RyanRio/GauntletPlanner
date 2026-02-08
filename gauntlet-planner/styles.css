@@ -49,6 +49,25 @@ main {
   gap: 2rem;
 }
 
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.6rem;
+}
+
+.legend-item {
+  background: #fffdf7;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.5rem 0.7rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.legend-item span {
+  font-size: 1.1rem;
+}
 .hero {
   background: linear-gradient(135deg, #f6d18b, #f5b97d 40%, #f28b5c 100%);
   padding: 2.5rem 6vw;
@@ -352,6 +371,21 @@ main {
   border-radius: 8px;
   border: 1px solid #d2c1a8;
   background: white;
+}
+
+.detail {
+  margin-top: 0.4rem;
+  padding: 0.5rem 0.6rem;
+  border-left: 3px solid var(--accent-3);
+  background: #fffdf7;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.detail a {
+  color: var(--accent-2);
 }
 
 .compare-row {

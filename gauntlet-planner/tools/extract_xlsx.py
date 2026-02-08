@@ -124,6 +124,60 @@ def normalize(value):
     return str(value).strip().lower()
 
 
+def find_boss_names(headers):
+    ignore = {"sync pair", "total", "number of solos", "las in-depth infos", "las in depth infos", "readme"}
+    return [h for h in headers if h and normalize(h) not in ignore]
+
+
+def find_boss_sheet(wb, boss_name):
+    target = normalize(boss_name)
+    for name in wb.sheetnames:
+        if target in normalize(name):
+            return name
+    return None
+
+
+def parse_boss_sheet(ws):
+    header_row = None
+    for r in range(1, 40):
+        if normalize(ws.cell(r, 1).value) == "who can solo":
+            header_row = r
+            break
+    if header_row is None:
+        return {}
+
+    data = {}
+    r = header_row + 1
+    while r <= ws.max_row:
+        name = ws.cell(r, 2).value
+        if not name:
+            r += 1
+            continue
+        sync_name = str(name).strip()
+        move_level = ws.cell(r, 3).value
+        grid = ws.cell(r, 4).value
+        min_invest = ws.cell(r, 5).value
+        max_invest = ws.cell(r, 6).value
+        difficulty = ws.cell(r, 7).value
+        notes = ws.cell(r, 8).value
+        min_link = ws.cell(r, 5).hyperlink.target if ws.cell(r, 5).hyperlink else None
+        max_link = ws.cell(r, 6).hyperlink.target if ws.cell(r, 6).hyperlink else None
+
+        data[sync_name] = {
+            "moveLevel": str(move_level).strip() if move_level is not None else "",
+            "grid": str(grid).strip() if grid is not None else "",
+            "minInvestment": str(min_invest).strip() if min_invest is not None else "",
+            "maxInvestment": str(max_invest).strip() if max_invest is not None else "",
+            "minVideo": min_link,
+            "maxVideo": max_link,
+            "difficulty": str(difficulty).strip() if difficulty is not None else "",
+            "notes": str(notes).strip() if notes is not None else ""
+        }
+        r += 1
+
+    return data
+
+
 def build_nav_image_map(z, wb, nav_sheet_name, out_dir):
     if nav_sheet_name not in wb.sheetnames:
         return {}
@@ -164,6 +218,7 @@ def main():
         raise SystemExit(f"Sheet not found: {args.sheet}")
     ws = wb[args.sheet]
     headers = detect_headers(ws)
+    boss_names = find_boss_names(headers)
 
     # Determine sync pair column
     sync_idx = None
@@ -188,9 +243,16 @@ def main():
     boss_cols = [i + 1 for i, h in enumerate(headers) if normalize(h) not in ignore and h]
 
     # Extract images
+    boss_details = {}
     with zipfile.ZipFile(args.xlsx, "r") as z:
         image_by_name = build_nav_image_map(z, wb, args.nav_sheet, args.out_images)
         img_map = {}
+
+    for boss in boss_names:
+        sheet_name = find_boss_sheet(wb, boss)
+        if not sheet_name:
+            continue
+        boss_details[boss] = parse_boss_sheet(wb[sheet_name])
 
     rows = []
     for r in range(data_start, ws.max_row + 1):
@@ -218,7 +280,8 @@ def main():
         "headers": headers,
         "syncPairColumn": sync_idx,
         "bossColumns": boss_cols,
-        "rows": rows
+        "rows": rows,
+        "bossDetails": boss_details
     }
 
     with open(args.out_json, "w", encoding="utf-8") as f:

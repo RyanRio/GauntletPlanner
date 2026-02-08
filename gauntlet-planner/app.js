@@ -14,14 +14,13 @@ const els = {
   pairSearch: document.getElementById("pairSearch"),
   pairsStatus: document.getElementById("pairsStatus"),
   pairsList: document.getElementById("pairsList"),
-  clearsFile: document.getElementById("clearsFile"),
   clearsJsonFile: document.getElementById("clearsJsonFile"),
   loadDefaultClearsJson: document.getElementById("loadDefaultClearsJson"),
   clearClears: document.getElementById("clearClears"),
-  columnMapping: document.getElementById("columnMapping"),
   clearsStatus: document.getElementById("clearsStatus"),
   buildPlan: document.getElementById("buildPlan"),
   resetPlan: document.getElementById("resetPlan"),
+  clearMatches: document.getElementById("clearMatches"),
   planStatus: document.getElementById("planStatus"),
   planOutput: document.getElementById("planOutput"),
   bossOutput: document.getElementById("bossOutput"),
@@ -30,7 +29,8 @@ const els = {
   notOwned: document.getElementById("notOwned"),
   unmatchedCount: document.getElementById("unmatchedCount"),
   ambiguousCount: document.getElementById("ambiguousCount"),
-  notOwnedCount: document.getElementById("notOwnedCount")
+  notOwnedCount: document.getElementById("notOwnedCount"),
+  manualMatchCount: document.getElementById("manualMatchCount")
 };
 
 const state = {
@@ -47,6 +47,7 @@ const state = {
   matchedOwnedPairs: new Set(),
   manualMatches: new Map(),
   unmatchedRowData: new Map(),
+  bossDetails: {},
   clears: [],
   clearsByBoss: new Map(),
   unmatched: new Map(),
@@ -115,6 +116,10 @@ function altVariants(alt) {
   if (lower === "sygna suit") variants.add("SS");
   if (lower.includes("sygna suit (renegade)") || lower.includes("sygna suit renegade")) variants.add("SSR");
   if (lower.includes("sygna suit (alt") || lower.includes("sygna suit alt")) variants.add("SSA");
+  if (lower.startsWith("sygna suit (") && lower.endsWith(")")) {
+    const inner = lower.slice("sygna suit (".length, -1).trim();
+    if (inner) variants.add(`SS${inner[0].toUpperCase()}`);
+  }
   if (lower.includes("special costume")) variants.add("SC");
   if (lower.includes("arc suit")) variants.add("Arc");
   if (lower.includes("palentine")) variants.add("Palentine's");
@@ -311,51 +316,6 @@ function renderOwnedPairs() {
     .join("");
 }
 
-function parseCSV(text) {
-  const rows = [];
-  let row = [];
-  let current = "";
-  let inQuotes = false;
-
-  for (let i = 0; i < text.length; i += 1) {
-    const char = text[i];
-    const next = text[i + 1];
-
-    if (char === '"') {
-      if (inQuotes && next === '"') {
-        current += '"';
-        i += 1;
-      } else {
-        inQuotes = !inQuotes;
-      }
-    } else if (char === "," && !inQuotes) {
-      row.push(current);
-      current = "";
-    } else if ((char === "\n" || char === "\r") && !inQuotes) {
-      if (char === "\r" && next === "\n") {
-        i += 1;
-      }
-      row.push(current);
-      if (row.some((cell) => cell.trim().length)) {
-        rows.push(row);
-      }
-      row = [];
-      current = "";
-    } else {
-      current += char;
-    }
-  }
-
-  if (current.length || row.length) {
-    row.push(current);
-    if (row.some((cell) => cell.trim().length)) {
-      rows.push(row);
-    }
-  }
-
-  return rows;
-}
-
 function resetClearsState() {
   state.clears = [];
   state.clearsByBoss.clear();
@@ -367,6 +327,7 @@ function resetClearsState() {
   state.imageByName.clear();
   state.matchedOwnedPairs.clear();
   state.unmatchedRowData.clear();
+  state.bossDetails = {};
 }
 
 function loadManualMatches() {
@@ -425,12 +386,14 @@ function applyManualMatches() {
     Object.entries(data.bosses || {}).forEach(([boss, investment]) => {
       const key = `${boss}|${pairId}`;
       if (existing.has(key)) return;
+      const detail = state.bossDetails?.[boss]?.[label] || null;
       const clear = {
         boss,
         pairId,
         investment,
         investmentScore: parseInvestmentScore(investment),
         image: data.image || null,
+        detail,
         manual: true
       };
       state.clears.push(clear);
@@ -443,16 +406,26 @@ function applyManualMatches() {
   });
   els.validClears.textContent = state.clears.length;
 }
+function clearManualMatches() {
+  state.manualMatches.clear();
+  localStorage.removeItem(MANUAL_MATCHES_KEY);
+  applyManualMatches();
+  renderUnmatched();
+  renderBossClears();
+  if (els.planStatus.textContent === "Drafted") {
+    buildPlan();
+  }
+}
 
 function loadClearsFromJsonPayload(payload, basePath) {
   resetClearsState();
   state.notOwnedInfo.clear();
+  state.bossDetails = payload.bossDetails || {};
   state.headers = payload.headers || [];
   state.rows = [];
   state.dataStartRow = 0;
   state.syncPairColumn = payload.syncPairColumn || null;
   state.bossColumns = payload.bossColumns || [];
-  els.columnMapping.innerHTML = "";
 
   const rows = payload.rows || [];
   rows.forEach((row) => {
@@ -495,13 +468,15 @@ function loadClearsFromJsonPayload(payload, basePath) {
     if (row.bosses) {
       Object.entries(row.bosses).forEach(([boss, investment]) => {
         if (!investment) return;
-        const clear = {
-          boss,
-          pairId: match.pair.id,
-          investment,
-          investmentScore: parseInvestmentScore(investment),
-          image: imagePath
-        };
+      const detail = state.bossDetails?.[boss]?.[syncName] || null;
+      const clear = {
+        boss,
+        pairId: match.pair.id,
+        investment,
+        investmentScore: parseInvestmentScore(investment),
+        image: imagePath,
+        detail
+      };
         state.clears.push(clear);
         if (!state.clearsByBoss.has(boss)) {
           state.clearsByBoss.set(boss, []);
@@ -516,108 +491,6 @@ function loadClearsFromJsonPayload(payload, basePath) {
   applyManualMatches();
   renderUnmatched();
   renderBossClears();
-}
-
-function renderMappingControls(headers, inferred) {
-  els.columnMapping.innerHTML = `
-    <label>
-      Sync Pair Column
-      <select data-field="sync">
-        <option value="">(none)</option>
-        ${headers
-          .map((header, index) => {
-            const selected = inferred.syncPairColumn === index ? "selected" : "";
-            return `<option value="${index}" ${selected}>${header}</option>`;
-          })
-          .join("")}
-      </select>
-    </label>
-    <label>
-      Boss Columns
-      <div class="boss-list">
-        ${headers
-          .map((header, index) => {
-            const checked = inferred.bossColumns.includes(index) ? "checked" : "";
-            return `
-              <label class="boss-item">
-                <input type="checkbox" data-boss="${index}" ${checked} />
-                ${header}
-              </label>
-            `;
-          })
-          .join("")}
-      </div>
-    </label>
-  `;
-
-  const syncSelect = els.columnMapping.querySelector("select[data-field='sync']");
-  syncSelect.addEventListener("change", () => {
-    buildClearsFromMapping();
-  });
-
-  const bossChecks = els.columnMapping.querySelectorAll("input[data-boss]");
-  bossChecks.forEach((check) => {
-    check.addEventListener("change", () => {
-      buildClearsFromMapping();
-    });
-  });
-}
-
-function getMapping() {
-  const syncSelect = els.columnMapping.querySelector("select[data-field='sync']");
-  const syncPairColumn = syncSelect?.value ? parseInt(syncSelect.value, 10) : null;
-  const bossColumns = [];
-  const bossChecks = els.columnMapping.querySelectorAll("input[data-boss]");
-  bossChecks.forEach((check) => {
-    if (check.checked) bossColumns.push(parseInt(check.dataset.boss, 10));
-  });
-  return { syncPairColumn, bossColumns };
-}
-
-function combineHeaderRows(rows, firstIndex, secondIndex) {
-  const a = rows[firstIndex] || [];
-  const b = rows[secondIndex] || [];
-  const max = Math.max(a.length, b.length);
-  const headers = [];
-  for (let i = 0; i < max; i += 1) {
-    const primary = (b[i] || "").trim();
-    const fallback = (a[i] || "").trim();
-    headers.push(primary || fallback || `Column ${i + 1}`);
-  }
-  return headers;
-}
-
-function inferLayout(rows) {
-  const maxScan = Math.min(rows.length, 5);
-  let syncHeaderRow = 0;
-  let bossHeaderRow = 0;
-
-  for (let i = 0; i < maxScan; i += 1) {
-    const row = rows[i].map((cell) => normalize(cell));
-    if (row.includes("sync pair")) syncHeaderRow = i;
-    if (row.some((cell) => ["tornadus", "terrakion", "raikou"].includes(cell))) bossHeaderRow = i;
-  }
-
-  const headers = combineHeaderRows(rows, syncHeaderRow, bossHeaderRow);
-  const ignore = new Set([
-    "sync pair",
-    "total",
-    "number of solos",
-    "las in depth infos",
-    "las in-depth infos",
-    "readme"
-  ]);
-
-  let syncPairColumn = headers.findIndex((h) => normalize(h) === "sync pair");
-  if (syncPairColumn === -1) syncPairColumn = 0;
-
-  const bossColumns = headers
-    .map((h, index) => ({ header: h, index }))
-    .filter(({ header }) => header && !ignore.has(normalize(header)))
-    .map(({ index }) => index);
-
-  const dataStart = Math.max(syncHeaderRow, bossHeaderRow) + 1;
-  return { headers, syncPairColumn, bossColumns, dataStart };
 }
 
 function matchPairName(name) {
@@ -688,82 +561,7 @@ function matchPairName(name) {
   return { status: "unmatched" };
 }
 
-function buildClearsFromMapping() {
-  resetClearsState();
-  state.notOwnedInfo.clear();
-
-  const { syncPairColumn, bossColumns } = getMapping();
-  if (syncPairColumn === null || bossColumns.length === 0) {
-    els.clearsStatus.textContent = "Select a sync pair column and at least one boss column.";
-    renderUnmatched();
-    return;
-  }
-
-  for (let i = state.dataStartRow || 1; i < state.rows.length; i += 1) {
-    const row = state.rows[i];
-    const syncName = row[syncPairColumn] || "";
-    if (!syncName.trim()) continue;
-    const normalized = normalize(syncName);
-    if (normalized === "readme" || normalized.startsWith("number of solos")) continue;
-
-    const match = matchPairName(syncName);
-    if (match.status !== "match") {
-      const bosses = {};
-      bossColumns.forEach((col) => {
-        const investment = (row[col] || "").trim();
-        if (!investment) return;
-        const boss = state.headers[col] || `Boss ${col + 1}`;
-        bosses[boss] = investment;
-      });
-      if (!state.unmatchedRowData.has(syncName)) {
-        state.unmatchedRowData.set(syncName, { bosses, image: state.imageByName.get(syncName) || null });
-      }
-      if (match.status === "unmatched") {
-        state.unmatched.set(syncName, (state.unmatched.get(syncName) || 0) + 1);
-      } else if (match.status === "notOwned") {
-        state.notOwned.set(syncName, (state.notOwned.get(syncName) || 0) + 1);
-        bossColumns.forEach((col) => {
-          const investment = (row[col] || "").trim();
-          if (!investment) return;
-          const boss = state.headers[col] || `Boss ${col + 1}`;
-          const score = parseInvestmentScore(investment);
-          const existing = state.notOwnedInfo.get(syncName);
-          if (!existing || score < existing.score) {
-            state.notOwnedInfo.set(syncName, { boss, investment, score });
-          }
-        });
-      } else if (match.status === "ambiguous") {
-        state.ambiguous.set(syncName, match.matches.map((entry) => pairDisplayName(entry.pair)));
-      }
-      continue;
-    }
-
-    state.matchedOwnedPairs.add(match.pair.id);
-    bossColumns.forEach((col) => {
-      const investment = (row[col] || "").trim();
-      if (!investment) return;
-      const boss = state.headers[col] || `Boss ${col + 1}`;
-      const clear = {
-        boss,
-        pairId: match.pair.id,
-        investment,
-        investmentScore: parseInvestmentScore(investment)
-      };
-      state.clears.push(clear);
-      if (!state.clearsByBoss.has(boss)) {
-        state.clearsByBoss.set(boss, []);
-      }
-      state.clearsByBoss.get(boss).push(clear);
-    });
-  }
-
-  els.validClears.textContent = state.clears.length;
-  els.clearsStatus.textContent = `${state.clears.length} solo clears loaded.`;
-  applyManualMatches();
-  renderUnmatched();
-  renderBossClears();
-}
-
+// CSV import path removed; XLSX extract is the only supported input.
 function renderUnmatched() {
   const items = [];
   let unmatchedTotal = 0;
@@ -909,6 +707,9 @@ function renderUnmatched() {
   if (els.notOwnedCount) {
     els.notOwnedCount.textContent = `Not owned: ${notOwnedTotal}`;
   }
+  if (els.manualMatchCount) {
+    els.manualMatchCount.textContent = `Manual: ${state.manualMatches.size}`;
+  }
 }
 
 function buildPlan() {
@@ -1026,6 +827,7 @@ function renderPlan(rounds) {
           const sheetImage = clear.image || state.imageByPairId.get(clear.pairId);
           const trackerIcon =
             entry && entry.pair.images && entry.pair.images.length > 0 ? `${ICON_BASE}${entry.pair.images[0]}` : null;
+          const detail = clear.detail;
           return `
             <div class="boss">
               <div class="boss-title">${clear.boss}</div>
@@ -1034,6 +836,20 @@ function renderPlan(rounds) {
                 ${trackerIcon ? `<img src="${trackerIcon}" alt="">` : ""}
                 <div class="muted">${name} — ${clear.investment}</div>
               </div>
+              ${
+                detail
+                  ? `<div class="detail">
+                      <div class="muted">${detail.moveLevel || ""} ${detail.grid || ""}</div>
+                      <div class="muted">Min: ${detail.minInvestment || "-"} ${
+                      detail.minVideo ? `<a href="${detail.minVideo}" target="_blank">Video</a>` : ""
+                    } | Max: ${detail.maxInvestment || "-"} ${
+                      detail.maxVideo ? `<a href="${detail.maxVideo}" target="_blank">Video</a>` : ""
+                    }</div>
+                      <div class="muted">Difficulty: ${detail.difficulty || "-"}</div>
+                      <div class="muted">${detail.notes || ""}</div>
+                    </div>`
+                  : ""
+              }
             </div>
           `;
         })
@@ -1071,6 +887,7 @@ function renderBossClears() {
           const sheetImage = clear.image || state.imageByPairId.get(clear.pairId);
           const trackerIcon =
             entry && entry.pair.images && entry.pair.images.length > 0 ? `${ICON_BASE}${entry.pair.images[0]}` : null;
+          const detail = clear.detail;
           return `
             <div class="boss">
               <div class="boss-line">
@@ -1078,6 +895,20 @@ function renderBossClears() {
                 ${trackerIcon ? `<img src="${trackerIcon}" alt="">` : ""}
                 <div class="muted">${name} — ${clear.investment}</div>
               </div>
+              ${
+                detail
+                  ? `<div class="detail">
+                      <div class="muted">${detail.moveLevel || ""} ${detail.grid || ""}</div>
+                      <div class="muted">Min: ${detail.minInvestment || "-"} ${
+                      detail.minVideo ? `<a href="${detail.minVideo}" target="_blank">Video</a>` : ""
+                    } | Max: ${detail.maxInvestment || "-"} ${
+                      detail.maxVideo ? `<a href="${detail.maxVideo}" target="_blank">Video</a>` : ""
+                    }</div>
+                      <div class="muted">Difficulty: ${detail.difficulty || "-"}</div>
+                      <div class="muted">${detail.notes || ""}</div>
+                    </div>`
+                  : ""
+              }
             </div>
           `;
         })
@@ -1116,31 +947,6 @@ els.reloadPairs.addEventListener("click", () => {
 
 els.pairSearch.addEventListener("input", () => renderOwnedPairs());
 
-els.clearsFile.addEventListener("change", async (event) => {
-  const file = event.target.files[0];
-  if (!file) return;
-  try {
-    const text = await file.text();
-    const rows = parseCSV(text);
-    if (!rows.length) {
-      els.clearsStatus.textContent = "No rows found.";
-      return;
-    }
-    const layout = inferLayout(rows);
-    state.headers = layout.headers;
-    state.rows = rows;
-    state.dataStartRow = layout.dataStart;
-    state.syncPairColumn = layout.syncPairColumn;
-    state.bossColumns = layout.bossColumns;
-    renderMappingControls(state.headers, layout);
-    els.clearsStatus.textContent = "CSV loaded. Confirm columns.";
-    buildClearsFromMapping();
-  } catch (err) {
-    if (els.clearsStatus) els.clearsStatus.textContent = "Failed to load CSV";
-    throw err;
-  }
-});
-
 els.clearsJsonFile.addEventListener("change", (event) => {
   const file = event.target.files[0];
   if (!file) return;
@@ -1152,12 +958,10 @@ els.loadDefaultClearsJson.addEventListener("click", () => {
 });
 
 els.clearClears.addEventListener("click", () => {
-  els.clearsFile.value = "";
   if (els.clearsJsonFile) els.clearsJsonFile.value = "";
   state.headers = [];
   state.rows = [];
   resetClearsState();
-  els.columnMapping.innerHTML = "";
   els.clearsStatus.textContent = "Clears removed.";
   els.validClears.textContent = "0";
   renderUnmatched();
@@ -1166,6 +970,9 @@ els.clearClears.addEventListener("click", () => {
 
 els.buildPlan.addEventListener("click", buildPlan);
 els.resetPlan.addEventListener("click", resetPlan);
+els.clearMatches?.addEventListener("click", () => {
+  clearManualMatches();
+});
 
 document.querySelectorAll(".tab").forEach((tab) => {
   tab.addEventListener("click", () => {

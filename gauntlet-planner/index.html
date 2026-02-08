@@ -56,17 +56,13 @@
           </div>
 
           <div class="card">
-            <h3>Solos CSV</h3>
-            <p class="muted">Export the sheet as CSV. Each row should list a sync pair and their boss solos.</p>
-            <div class="controls">
-              <input type="file" id="clearsFile" accept="text/csv" />
-              <button id="clearClears">Clear</button>
-            </div>
+            <h3>XLSX Extract</h3>
+            <p class="muted">Use the extracted JSON from the XLSX (with images) for full functionality.</p>
             <div class="controls">
               <input type="file" id="clearsJsonFile" accept="application/json" />
               <button id="loadDefaultClearsJson">Load XLSX Extract</button>
+              <button id="clearClears">Clear</button>
             </div>
-            <div class="mapping" id="columnMapping"></div>
             <div class="scroll" id="clearsStatus"></div>
           </div>
         </div>
@@ -93,6 +89,7 @@
               <span class="pill warn" id="unmatchedCount">Unmatched: 0</span>
               <span class="pill warn" id="ambiguousCount">Ambiguous: 0</span>
               <span class="pill warn" id="notOwnedCount">Not owned: 0</span>
+              <span class="pill" id="manualMatchCount">Manual: 0</span>
             </div>
           </div>
           <div id="planOutput" class="plan tab-content active" data-tab-content="plan"></div>
@@ -109,6 +106,9 @@
           <div class="scroll" id="unmatched"></div>
           <details class="not-owned">
             <summary>Visual Compare (Sheet vs Tracker)</summary>
+            <div class="controls">
+              <button id="clearMatches">Clear manual matches</button>
+            </div>
             <div class="scroll" id="visualCompare"></div>
           </details>
           <details class="not-owned">
@@ -118,6 +118,28 @@
         </div>
       </section>
     </main>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Difficulty Legend</h2>
+        <p>Min investment difficulty and special requirements from the sheet.</p>
+      </div>
+      <div class="card legend">
+        <div class="legend-item"><span>🔰</span> Beginner Difficulty</div>
+        <div class="legend-item"><span>✔️</span> Normal Difficulty</div>
+        <div class="legend-item"><span>⚠️</span> Moderate Difficulty</div>
+        <div class="legend-item"><span>⛔</span> Difficult/RNG Heavy/Precise</div>
+        <div class="legend-item"><span>🚫</span> Not Recommended</div>
+        <div class="legend-item"><span>🕗</span> Time Consuming</div>
+        <div class="legend-item"><span>🔁</span> Reset Heavy</div>
+        <div class="legend-item"><span>⚙️</span> Skill Gear Required</div>
+        <div class="legend-item"><span>🪽</span> Dodge Reliant</div>
+        <div class="legend-item"><span>💦💤🧊</span> Disable Spam</div>
+        <div class="legend-item"><span>⚡</span> Energy Overcap</div>
+        <div class="legend-item"><span>*️⃣</span> Lvl 181-200</div>
+        <div class="legend-item"><span>🥠</span> Special Cookie Required</div>
+      </div>
+    </section>
 
     <footer>
       <div>Built on top of SyncPairsTracker assets.</div>
