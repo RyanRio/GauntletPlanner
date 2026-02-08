@@ -29,9 +29,7 @@ const els = {
   pairSearch: document.getElementById("pairSearch"),
   pairsStatus: document.getElementById("pairsStatus"),
   pairsList: document.getElementById("pairsList"),
-  clearsJsonFile: document.getElementById("clearsJsonFile"),
-  loadDefaultClearsJson: document.getElementById("loadDefaultClearsJson"),
-  clearClears: document.getElementById("clearClears"),
+  reloadClears: document.getElementById("reloadClears"),
   clearsStatus: document.getElementById("clearsStatus"),
   buildPlan: document.getElementById("buildPlan"),
   resetPlan: document.getElementById("resetPlan"),
@@ -275,9 +273,13 @@ async function loadClearsJsonFromFile(file) {
 }
 
 async function loadDefaultClearsJson() {
+  if (els.clearsStatus) {
+    els.clearsStatus.textContent = "⏳ Loading clears_from_xlsx.json...";
+  }
   const res = await fetch("./clears_from_xlsx.json");
   if (!res.ok) {
-    els.clearsStatus.textContent = "Missing clears_from_xlsx.json";
+    els.clearsStatus.textContent =
+      "⚠️ Missing clears_from_xlsx.json. Run setup-gauntlet.js to generate the XLSX extract.";
     return;
   }
   const payload = await res.json();
@@ -502,7 +504,7 @@ function loadClearsFromJsonPayload(payload, basePath) {
   });
 
   els.validClears.textContent = state.clears.length;
-  els.clearsStatus.textContent = `${state.clears.length} solo clears loaded (xlsx).`;
+  els.clearsStatus.textContent = `✅ ${state.clears.length} solo clears loaded (xlsx).`;
   applyManualMatches();
   renderUnmatched();
   renderBossClears();
@@ -1000,31 +1002,13 @@ els.reloadPairs.addEventListener("click", () => {
 
 els.pairSearch.addEventListener("input", () => renderOwnedPairs());
 
-els.clearsJsonFile.addEventListener("change", (event) => {
-  const file = event.target.files[0];
-  if (!file) return;
-  loadClearsJsonFromFile(file);
-});
-
-els.loadDefaultClearsJson.addEventListener("click", () => {
-  loadDefaultClearsJson();
-});
-
-els.clearClears.addEventListener("click", () => {
-  if (els.clearsJsonFile) els.clearsJsonFile.value = "";
-  state.headers = [];
-  state.rows = [];
-  resetClearsState();
-  els.clearsStatus.textContent = "Clears removed.";
-  els.validClears.textContent = "0";
-  renderUnmatched();
-  renderBossClears();
-});
-
 els.buildPlan.addEventListener("click", buildPlan);
 els.resetPlan.addEventListener("click", resetPlan);
 els.clearMatches?.addEventListener("click", () => {
   clearManualMatches();
+});
+els.reloadClears?.addEventListener("click", () => {
+  loadDefaultClearsJson();
 });
 
 document.querySelectorAll(".tab").forEach((tab) => {
@@ -1042,3 +1026,4 @@ state.allPairs = Array.from(state.pairsMap.entries()).map(([id, pair]) => ({ id,
 buildPairLookup();
 loadManualMatches();
 loadDefaultPairs();
+loadDefaultClearsJson();
