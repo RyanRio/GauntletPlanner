@@ -1,0 +1,17 @@
+.DS_Store
+Thumbs.db
+
+__pycache__/
+*.pyc
+.pytest_cache/
+
+.venv/
+venv/
+.env
+.env.*
+
+gauntlet-planner/clears_images/
+gauntlet-planner/clears_from_xlsx.json
+gauntlet-planner/my_pairs.json
+gauntlet-planner/icons/
+gauntlet-planner/vendor/syncpairs.js
