@@ -1,0 +1,3 @@
+[submodule "SyncPairsTracker"]
+	path = SyncPairsTracker
+	url = https://github.com/pomasters/SyncPairsTracker.git
