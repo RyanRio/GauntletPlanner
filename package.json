@@ -1,0 +1,11 @@
+{
+  "name": "gauntlet-planner",
+  "private": true,
+  "homepage": "https://ryanrio.github.io/gauntlet-planner",
+  "scripts": {
+    "deploy": "gh-pages -d gauntlet-planner -b gh-pages"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
